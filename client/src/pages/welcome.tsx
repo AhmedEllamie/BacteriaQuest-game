@@ -3,21 +3,20 @@ import { useLocation } from "wouter";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import { playWelcomeSound } from "@/lib/audio";
 
 export default function Welcome() {
   const [, setLocation] = useLocation();
   const [isPlaying, setIsPlaying] = useState(false);
 
   const handleStart = () => {
-    // Play welcome sound
-    const audio = new Audio("/welcome.mp3");
-    audio.play();
     setIsPlaying(true);
+    const soundDuration = playWelcomeSound();
 
-    // Navigate to game after sound plays
+    // Navigate after the welcome sound finishes
     setTimeout(() => {
       setLocation("/game");
-    }, 2000); // Adjust timing based on your audio length
+    }, soundDuration);
   };
 
   return (
