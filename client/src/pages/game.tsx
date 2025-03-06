@@ -65,7 +65,7 @@ export default function Game() {
   return (
     <div 
       className="min-h-screen bg-cover bg-center bg-no-repeat p-6"
-      style={{ backgroundImage: 'url(attached_assets/game1.jpg)' }}
+      style={{ backgroundImage: 'url(/attached_assets/game1.jpg)' }}
     >
       <div className="max-w-4xl mx-auto space-y-8">
         <div className="text-center mb-8">
