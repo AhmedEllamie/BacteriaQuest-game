@@ -1,0 +1,87 @@
+id,question,option1,option2,option3,option4,correct_option,explanation
+0,"Does the AWaRe classification apply to all medicines, not just antibiotics?",yes,No,,,2,AWaRe is specifically for antibiotics to guide their rational use.
+1,Does the AWaRe classification prioritize the availability of antibiotics in the “Watch” category ? ,yes,No,,,2,Ensuring the availability of “Access” antibiotics is a key object to improve treatment of common infections and reduce the misuse of higher-risk antibiotics 
+2,Is the target of AWaRe to have at least60% of national antibiotic consumption from the Access group ?,yes,No,,,1,The WHO set a target for countries to achieve at least 60% of their antibiotic consumption from the Access category to promote safer prescribing practices.
+3,Is limiting the spread of multidrug-resistant infections a direct target of the watch category ?,yes,No,,,2,Reserve antibiotics are preserved for severe cases involving multidrug-resistant bacteria to prevent the spread of resistance.
+4,"Should every ICU-admitted patient, regardless of their disease, receive prophylactic antibiotics?",yes,No,,,2,"Prophylactic antibiotics should only be administered in specific cases, such as for surgical prophylaxis."
+5,What is the definition of multidrug resistance (MDR) in the context of infectious diseases?,The ability of microorganisms to resist the action of a single antibiotic due to inherent mechanisms,"The ability of  microorganisms to resist one antimicrobial agents from three different classes, making infections harder to treat",The phenomenon where bacteria naturally lack susceptibility to all antibiotics,,2,"MDR is The ability of  microorganisms to resist one antimicrobial agents from three different classes, making infections harder to treat"
+6,Can Access antibiotics be used as first-line treatments for common infections?,yes,No,,,1,"Access antibiotics are safe, effective, and recommended as first-line options."
+7,Does the overuse of Access antibiotics contribute significantly to antimicrobial resistance?,yes,No,,,1,Even Access antibiotics should be used in rational way to minimize resistance.
+8,"A 5-year-old child has an ear infection (otitis media) and needs treatment.
+
+""What is the most appropriate choice?""",Amoxicillin,Ciprofloxacin,Ceftriaxone,,1,Amoxicillin is an Access antibiotic and the first-line treatment for pediatric ear infections.
+9,"A physician prescribes Ciprofloxacin for a 54 years old man with mild urinary tract infection (UTI).
+
+""What is your advice?""",Approve the prescription,Recommend  Nitrofurantoin,Suggest Colistin,,2,"Nitrofurantoin is an Access antibiotic suitable for uncomplicated UTIs, reducing resistance risks
+Ciprofloxacin is a Watch antibiotic and should not be used for mild infections.
+Reserve antibiotics like Colistin are inappropriate for simple UTIs and should be preserved for critical cases."
+10,"A 25-year-old patient has a mild skin infection (impetigo).
+
+""What treatment would you recommend?""",Topical antibiotics like Mupirocin,Oral Clindamycin,Oral Ciprofloxacin,,1,"Mupirocin is an Access antibiotic suitable for mild skin infections, avoiding systemic antibiotic use.
+Clindamycin for skin infections  should be preserved for MRSA infections not mild infections.
+Ciprofloxacin, are not required for localized skin infections"
+12,"A 50-year-old patient is scheduled for breast surgery and requires antibiotic prophylaxis.
+
+""Which antibiotic is appropriate for prophylaxis?",Ceftriaxone,Meropenem ,Cefazolin,,3,"Antibiotics from the Access category, like Cefazolin, are suitable for surgical prophylaxis to prevent infection "
+13,"A newborn shows signs of sepsis (fever, lethargy, and poor feeding).
+
+""What antibiotic combination is appropriate?""",Ampicillin and Gentamicin,Levofloxacin,Colistin,,1,This Access combination is recommended for neonatal sepsis
+14,"A 62-year-old patient with diabetes develops a foot ulcer with pus and a foul smell.
+
+""What is the appropriate first step?""",Apply standard wound care while awaiting culture results,Start empiric broad-spectrum antibiotics,Prescribe a Reserve antibiotic like linezolid ,,2,"Broad-spectrum Access antibiotics should be started while awaiting culture
+The absence of empirical antibiotics in the presence of an active infection worsening complications.
+Reserve antibiotics should be used only for confirmed resistant cases."
+15,"A 65-year-old patient with COPD develops increased sputum production and shortness of breath.
+""What is the most appropriate initial antibiotic choice?""",Doxycycline,Ciprofloxacin,Linezolid,,1,"Doxycycline, an Access antibiotic, is effective for mild to moderate COPD exacerbations.
+Ciprofloxacin is a Watch antibiotic and not the first-line choice for COPD exacerbations.
+Reserve antibiotics like Linezolid are not needed in this scenario"
+16,"A 40-year-old patient presents with fever, flank pain , and a confirmed  upper UTI
+
+""What is the first-line treatment?""",Nitrofurantoin,Ciprofloxacin,Amoxicillin,,2,"Fluoroquinolones is first line in mild to moderate cases 
+Nitrofurantoin is an Access antibiotic suitable for  lower UTIs.
+Amoxicillin  is not effective for many UTI pathogens."
+17,give examples about Access group of antibiotics ,piperacillin/Tazobactam ,Tigecycline,Metronidazole,,3,"metronidazole is acess antibiotic
+piperacillin/Tazobactam is watch antibiotic
+Tigecycline is reserve antibiotic"
+18,Is Amikacin (Aminoglycosides) an example of a Watch antibiotic?,yes,No,,,2,Amikacin belongs to the Access group in spite of it’s potential side effects. It’s classified in this group due to it’s relatively low potential for inducing antimicrobial resistance when compared to other antibiotics.
+19,Do Watch antibiotics have a higher potential for developing resistance compared to Access antibiotics?,yes,No,,,1,Watch antibiotics require closer monitoring due to their resistance potential.
+20,give examples about Watch group of antibiotics ,Levofloxacin,Colistin,sulfamethoxazole/trimethoprim,,1,"Levofloxacin (Flouroquinolones)is watch antibiotic 
+sulfamethoxazole/trimethoprim is acess antibiotc
+Colistin is reserve antibiotic"
+21,"A 70-year-old patient develops diarrhea after recent antibiotic use.
+
+""What is the appropriate treatment?""",Oral Vancomycin,Amoxicillin,Ciprofloxacin,,1,"Oral Vancomycin is a Watch antibiotic specifically used for severe C. difficile infections.
+Amoxicillin can worsen C. difficile infections.
+Fluoroquinolones are not appropriate for treating C. difficile."
+22,"A 55-year-old patient presents with fever, abdominal pain, and radiologic evidence of a perforated bowel, likely associated with peritonitis. The patient has no known drug allergies and has a history of hypertension. What is the recommended antibiotic regimen for empiric treatment, considering the potential for polymicrobial infection, including both aerobic and anaerobic pathogens?",Piperacillin-tazobactam,Clindamycin,Ciprofloxacin,,1,"Piperacillin-tazobactam, a Watch antibiotic, is effective against the mixed organisms in intra-abdominal infections.
+Clindamycin does not provide adequate coverage for intra-abdominal infections.
+Ciprofloxacin alone is insufficient for broad-spectrum coverage."
+23,"A 28-year-old presents with symptoms of gonorrhea confirmed by laboratory testing.
+
+""What is the recommended treatment?""",Ceftriaxone,Ciprofloxacin,Azithromycin,,1,"Ceftriaxone, a Watch antibiotic, is recommended for gonorrhea due to increasing resistance to other treatments
+Fluoroquinolones are no longer first-line due to resistance.
+Azithromycin alone is not sufficient for gonorrhea treatment"
+24,"A 30-year-old patient presents with prolonged fever, abdominal pain, and a positive blood culture for Salmonella typhi.
+
+""What antibiotic would you choose?""",Amoxicillin,Ceftriaxone,Linezolid,,2,"Ceftriaxone, a Watch antibiotic, is effective against typhoid fever caused by Salmonella typhi"
+25,"A 45-year-old patient presents with a severe skin infection, clinically suspected to be caused by methicillin-resistant Staphylococcus aureus (MRSA). Considering the potential for both localized and systemic complications, the most appropriate antibiotic therapy should be chosen based on the severity of the infection and resistance patterns.",Linezolid,Tigecycline,Vancomycin,,3,"Vancomycin is the first-line IV treatment for severe MRSA skin and soft tissue infections (SSTIs). It is highly effective and widely used in hospitalized patients with complicated 
+While tigecycline has activity against MRSA, it is not a first-line choice for MRSA skin infections due to its bacteriostatic nature and lower efficacy in bloodstream infections. It is generally reserved for polymicrobial infections, complicated intra-abdominal infections, and when other options are not suitable.
+Linezolid is an effective option for MRSA infections, including skin and soft tissue infections (SSTIs), but it is typically reserved for cases where vancomycin treatment fails or is contraindicated, such as in vancomycin-resistant cases or in patients with poor renal function."
+26,Are Reserve antibiotics used as a last-line treatment (last resort) for culture-based severe infections?,yes,No,,,1,"Reserve antibiotics play a critical role in managing multidrug-resistant, culture-confirmed infections and must be preserved to maintain their effectiveness."
+27,give examples about Reserve group of antibiotics ,Meropenem,Gentamicin,Colistin,,3," Colistin is reserve antibiotic 
+ Meropenem is watch antibiotic 
+ Gentamicin is acess antibiotic"
+28,"A 70-year-old ICU patient with severe sepsis caused by carbapenem-resistant Klebsiella pneumoniae (CRKP) requires immediate antimicrobial therapy. Given the pathogen’s multidrug-resistant profile and the critical condition of the patient, which of the following antibiotics would be the most appropriate choice?",Cefepime,Colistin,Ciprofloxacin,,2,"Colistin, a Reserve antibiotic, is crucial for treating multidrug-resistant & culture-confirmed infections like sepsis in critical patients.
+Ciprofloxacin is ineffective against resistant organisms causing sepsis
+Watch antibiotics like Cefepime are ineffective for highly resistant infections."
+29,"A 65-year-old ICU patient develops ventilator-associated pneumonia caused by carbapenem-resistant Klebsiella pneumoniae.
+""What is the most appropriate antibiotic to use?""",Ceftriaxone,cefepime,Colistin,,3,"Colistin is a Reserve antibiotic, used only for severe infections caused by multidrug-resistant & culture-confirmed infections
+Cefepime and Ceftriaxone do not cover carbapenem-resistant Klebsiella."
+30,"A 55-year-old patient with sepsis caused by multidrug-resistant Acinetobacter baumannii.
+
+“What antibiotic is recommended in this scenario?”",Amoxicillin-clavulanate,Tigecycline,Azithromycin,,2,Tigecycline is a Reserve antibiotic used for multidrug-resistant & culture-confirmed Acinetobacter infections
+31,": A 50-year-old patient develops sepsis from a catheter-related bloodstream infection caused by vancomycin-resistant Enterococcus faecium.
+
+""What is the antibiotic of choice?”",Tigecycline,Meropenem,Linezolid,,3,"Linezolid, a Reserve antibiotic, is used to treat culture-confirmed infections caused by VRE.
+Tigecycline is ineffective against VRE
+Meropenem does not cover resistant Enterococcus species."

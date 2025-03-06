@@ -8,342 +8,301 @@ export interface Question {
 export const questions: Question[] = [
   {
     id: 1,
-    text: "Which category of antibiotics should be used as first-line treatments for common infections?",
+    text: "Does the AWaRe classification apply to all medicines, not just antibiotics?",
     options: [
-      "Access antibiotics",
-      "Watch antibiotics",
-      "Reserve antibiotics",
-      "All antibiotics equally"
+      "Yes",
+      "No"
     ],
-    correctAnswer: 0
+    correctAnswer: 1
   },
   {
     id: 2,
-    text: "What is a key characteristic of Watch antibiotics?",
+    text: "Does the AWaRe classification prioritize the availability of antibiotics in the 'Watch' category?",
     options: [
-      "They are completely safe to use without monitoring",
-      "They have higher resistance potential and require monitoring",
-      "They are only used in developing countries",
-      "They are no longer effective"
+      "Yes",
+      "No"
     ],
     correctAnswer: 1
   },
   {
     id: 3,
-    text: "When should Reserve antibiotics be used?",
+    text: "Is the target of AWaRe to have at least 60% of national antibiotic consumption from the Access group?",
     options: [
-      "As first-line treatment for any infection",
-      "For mild infections only",
-      "For severe, multidrug-resistant infections",
-      "Never"
-    ],
-    correctAnswer: 2
-  },
-  {
-    id: 4,
-    text: "Which antibiotic belongs to the Access category and is commonly used for urinary tract infections?",
-    options: [
-      "Nitrofurantoin",
-      "Vancomycin",
-      "Meropenem",
-      "Colistin"
+      "Yes",
+      "No"
     ],
     correctAnswer: 0
   },
   {
-    id: 5,
-    text: "What action contributes to antibiotic resistance?",
+    id: 4,
+    text: "Is limiting the spread of multidrug-resistant infections a direct target of the watch category?",
     options: [
-      "Completing the full course of antibiotics",
-      "Taking antibiotics only when prescribed",
-      "Stopping antibiotics when feeling better",
-      "Following the prescribed dosage"
+      "Yes",
+      "No"
     ],
-    correctAnswer: 2
+    correctAnswer: 1
+  },
+  {
+    id: 5,
+    text: "Should every ICU-admitted patient, regardless of their disease, receive prophylactic antibiotics?",
+    options: [
+      "Yes",
+      "No"
+    ],
+    correctAnswer: 1
   },
   {
     id: 6,
-    text: "Which group of antibiotics should be preserved for future use?",
+    text: "What is the definition of multidrug resistance (MDR) in the context of infectious diseases?",
     options: [
-      "Access antibiotics",
-      "Watch antibiotics",
-      "Reserve antibiotics",
-      "Over-the-counter antibiotics"
+      "The ability of microorganisms to resist the action of a single antibiotic due to inherent mechanisms",
+      "The ability of microorganisms to resist one antimicrobial agents from three different classes, making infections harder to treat",
+      "The phenomenon where bacteria naturally lack susceptibility to all antibiotics"
     ],
-    correctAnswer: 2
+    correctAnswer: 1
   },
   {
     id: 7,
-    text: "What is a characteristic of Access antibiotics?",
+    text: "Can Access antibiotics be used as first-line treatments for common infections?",
     options: [
-      "They are expensive and rare",
-      "They are broad-spectrum only",
-      "They have a high resistance risk",
-      "They are widely available and affordable"
+      "Yes",
+      "No"
     ],
-    correctAnswer: 3
+    correctAnswer: 0
   },
   {
     id: 8,
-    text: "Which statement about Watch antibiotics is correct?",
+    text: "Does the overuse of Access antibiotics contribute significantly to antimicrobial resistance?",
     options: [
-      "They should never be used",
-      "They require careful monitoring",
-      "They are completely safe",
-      "They are only for children"
+      "Yes",
+      "No"
     ],
-    correctAnswer: 1
+    correctAnswer: 0
   },
   {
     id: 9,
-    text: "What is the main purpose of the WHO AWaRe classification?",
+    text: "A 5-year-old child has an ear infection (otitis media) and needs treatment. What is the most appropriate choice?",
     options: [
-      "To make antibiotics more expensive",
-      "To guide antibiotic prescribing and use",
-      "To eliminate all antibiotic use",
-      "To promote over-the-counter sales"
+      "Amoxicillin",
+      "Ciprofloxacin",
+      "Ceftriaxone"
     ],
-    correctAnswer: 1
+    correctAnswer: 0
   },
   {
     id: 10,
-    text: "When prescribing Watch antibiotics, what is important?",
+    text: "A physician prescribes Ciprofloxacin for a 54 years old man with mild urinary tract infection (UTI). What is your advice?",
     options: [
-      "Using them for all infections",
-      "Monitoring their use and impact",
-      "Avoiding them completely",
-      "Doubling the dose"
+      "Approve the prescription",
+      "Recommend Nitrofurantoin",
+      "Suggest Colistin"
     ],
     correctAnswer: 1
   },
   {
     id: 11,
-    text: "Which is an example of a Reserve antibiotic?",
+    text: "A 25-year-old patient has a mild skin infection (impetigo). What treatment would you recommend?",
     options: [
-      "Amoxicillin",
-      "Azithromycin",
-      "Colistin",
-      "Penicillin"
+      "Topical antibiotics like Mupirocin",
+      "Oral Clindamycin",
+      "Oral Ciprofloxacin"
+    ],
+    correctAnswer: 0
+  },
+  {
+    id: 12,
+    text: "A 50-year-old patient is scheduled for breast surgery and requires antibiotic prophylaxis. Which antibiotic is appropriate for prophylaxis?",
+    options: [
+      "Ceftriaxone",
+      "Meropenem",
+      "Cefazolin"
     ],
     correctAnswer: 2
   },
   {
-    id: 12,
-    text: "What should healthcare providers consider when prescribing antibiotics?",
-    options: [
-      "Patient's ability to pay only",
-      "The AWaRe classification and resistance risk",
-      "The newest antibiotics available",
-      "Patient's preference only"
-    ],
-    correctAnswer: 1
-  },
-  {
     id: 13,
-    text: "Why is antibiotic stewardship important?",
+    text: "A newborn shows signs of sepsis (fever, lethargy, and poor feeding). What antibiotic combination is appropriate?",
     options: [
-      "To increase antibiotic sales",
-      "To prevent antibiotic resistance",
-      "To make treatment more expensive",
-      "To reduce all antibiotic use"
+      "Ampicillin and Gentamicin",
+      "Levofloxacin",
+      "Colistin"
     ],
-    correctAnswer: 1
+    correctAnswer: 0
   },
   {
     id: 14,
-    text: "What percentage of Access antibiotics should countries aim to use?",
+    text: "A 62-year-old patient with diabetes develops a foot ulcer with pus and a foul smell. What is the appropriate first step?",
     options: [
-      "Less than 20%",
-      "At least 60%",
-      "100%",
-      "25%"
+      "Apply standard wound care while awaiting culture results",
+      "Start empiric broad-spectrum antibiotics",
+      "Prescribe a Reserve antibiotic like linezolid"
     ],
     correctAnswer: 1
   },
   {
     id: 15,
-    text: "Which condition usually requires Watch antibiotics?",
+    text: "A 65-year-old patient with COPD develops increased sputum production and shortness of breath. What is the most appropriate initial antibiotic choice?",
     options: [
-      "Common cold",
-      "Mild skin infection",
-      "Hospital-acquired pneumonia",
-      "Simple urinary tract infection"
+      "Doxycycline",
+      "Ciprofloxacin",
+      "Linezolid"
     ],
-    correctAnswer: 2
+    correctAnswer: 0
   },
   {
     id: 16,
-    text: "What is a key principle of antibiotic stewardship?",
+    text: "A 40-year-old patient presents with fever, flank pain, and a confirmed upper UTI. What is the first-line treatment?",
     options: [
-      "Using antibiotics for all infections",
-      "Using the right antibiotic at the right time",
-      "Always using broad-spectrum antibiotics",
-      "Avoiding all antibiotic use"
+      "Nitrofurantoin",
+      "Ciprofloxacin",
+      "Amoxicillin"
     ],
     correctAnswer: 1
   },
   {
     id: 17,
-    text: "When should Reserve antibiotics be considered?",
+    text: "Give examples about Access group of antibiotics",
     options: [
-      "For first-line treatment",
-      "For mild infections",
-      "When other options have failed",
-      "For viral infections"
+      "Piperacillin/Tazobactam",
+      "Tigecycline",
+      "Metronidazole"
     ],
     correctAnswer: 2
   },
   {
     id: 18,
-    text: "What characterizes Access antibiotics?",
+    text: "Is Amikacin (Aminoglycosides) an example of a Watch antibiotic?",
     options: [
-      "High cost and limited availability",
-      "Wide availability and lower resistance risk",
-      "Restricted use only",
-      "Complex monitoring requirements"
+      "Yes",
+      "No"
     ],
     correctAnswer: 1
   },
   {
     id: 19,
-    text: "How can healthcare providers prevent antibiotic resistance?",
+    text: "Do Watch antibiotics have a higher potential for developing resistance compared to Access antibiotics?",
     options: [
-      "Prescribing antibiotics for all infections",
-      "Following the AWaRe classification",
-      "Using only new antibiotics",
-      "Avoiding all antibiotic use"
+      "Yes",
+      "No"
     ],
-    correctAnswer: 1
+    correctAnswer: 0
   },
   {
     id: 20,
-    text: "What is the role of Watch antibiotics?",
+    text: "Give examples about Watch group of antibiotics",
     options: [
-      "First-line treatment for all infections",
-      "Treatment for specific conditions with monitoring",
-      "Emergency use only",
-      "Over-the-counter use"
+      "Levofloxacin",
+      "Colistin",
+      "Sulfamethoxazole/trimethoprim"
     ],
-    correctAnswer: 1
+    correctAnswer: 0
   },
   {
     id: 21,
-    text: "Which practice helps prevent antibiotic resistance?",
+    text: "A 70-year-old patient develops diarrhea after recent antibiotic use. What is the appropriate treatment?",
     options: [
-      "Using antibiotics for viral infections",
-      "Completing prescribed antibiotic courses",
-      "Sharing antibiotics with others",
-      "Stopping antibiotics early"
+      "Oral Vancomycin",
+      "Amoxicillin",
+      "Ciprofloxacin"
     ],
-    correctAnswer: 1
+    correctAnswer: 0
   },
   {
     id: 22,
-    text: "What is a key goal of the AWaRe classification?",
+    text: "A 55-year-old patient presents with fever, abdominal pain, and radiologic evidence of a perforated bowel. What is the recommended antibiotic regimen for empiric treatment?",
     options: [
-      "Increasing antibiotic use",
-      "Reducing access to antibiotics",
-      "Optimizing antibiotic use",
-      "Eliminating antibiotic use"
+      "Piperacillin-tazobactam",
+      "Clindamycin",
+      "Ciprofloxacin"
     ],
-    correctAnswer: 2
+    correctAnswer: 0
   },
   {
     id: 23,
-    text: "When are Watch antibiotics appropriate?",
+    text: "A 28-year-old presents with symptoms of gonorrhea confirmed by laboratory testing. What is the recommended treatment?",
     options: [
-      "For all infections",
-      "For specific infections with monitoring",
-      "Never",
-      "Only in emergencies"
+      "Ceftriaxone",
+      "Ciprofloxacin",
+      "Azithromycin"
+    ],
+    correctAnswer: 0
+  },
+  {
+    id: 24,
+    text: "A 30-year-old patient presents with prolonged fever, abdominal pain, and a positive blood culture for Salmonella typhi. What antibiotic would you choose?",
+    options: [
+      "Amoxicillin",
+      "Ceftriaxone",
+      "Linezolid"
     ],
     correctAnswer: 1
   },
   {
-    id: 24,
-    text: "What should guide antibiotic selection?",
+    id: 25,
+    text: "A 45-year-old patient presents with a severe skin infection, clinically suspected to be caused by MRSA. What is the most appropriate antibiotic therapy?",
     options: [
-      "Cost only",
-      "Patient preference only",
-      "AWaRe classification and clinical evidence",
-      "Availability only"
+      "Linezolid",
+      "Tigecycline",
+      "Vancomycin"
     ],
     correctAnswer: 2
   },
   {
-    id: 25,
-    text: "Why monitor Watch antibiotics closely?",
-    options: [
-      "They are too expensive",
-      "They have higher resistance potential",
-      "They are always ineffective",
-      "They are too new"
-    ],
-    correctAnswer: 1
-  },
-  {
     id: 26,
-    text: "What is a consequence of antibiotic resistance?",
+    text: "Are Reserve antibiotics used as a last-line treatment (last resort) for culture-based severe infections?",
     options: [
-      "Easier treatment of infections",
-      "Lower healthcare costs",
-      "Reduced need for antibiotics",
-      "More difficult-to-treat infections"
+      "Yes",
+      "No"
     ],
-    correctAnswer: 3
+    correctAnswer: 0
   },
   {
     id: 27,
-    text: "How should Reserve antibiotics be managed?",
+    text: "Give examples about Reserve group of antibiotics",
     options: [
-      "Used as first-line treatment",
-      "Reserved for last-resort cases",
-      "Used without restrictions",
-      "Avoided completely"
+      "Meropenem",
+      "Gentamicin",
+      "Colistin"
     ],
-    correctAnswer: 1
+    correctAnswer: 2
   },
   {
     id: 28,
-    text: "What promotes responsible antibiotic use?",
+    text: "A 70-year-old ICU patient with severe sepsis caused by carbapenem-resistant Klebsiella pneumoniae (CRKP) requires immediate antimicrobial therapy. Which antibiotic would be most appropriate?",
     options: [
-      "Using antibiotics for all illnesses",
-      "Following AWaRe guidelines",
-      "Sharing antibiotics",
-      "Self-prescribing antibiotics"
+      "Cefepime",
+      "Colistin",
+      "Ciprofloxacin"
     ],
     correctAnswer: 1
   },
   {
     id: 29,
-    text: "Which statement about Access antibiotics is true?",
+    text: "A 65-year-old ICU patient develops ventilator-associated pneumonia caused by carbapenem-resistant Klebsiella pneumoniae. What is the most appropriate antibiotic to use?",
     options: [
-      "They should be avoided",
-      "They are first-line treatments",
-      "They are only for emergencies",
-      "They are always ineffective"
+      "Ceftriaxone",
+      "Cefepime",
+      "Colistin"
     ],
-    correctAnswer: 1
+    correctAnswer: 2
   },
   {
     id: 30,
-    text: "What is important in antibiotic stewardship?",
+    text: "A 55-year-old patient with sepsis caused by multidrug-resistant Acinetobacter baumannii. What antibiotic is recommended in this scenario?",
     options: [
-      "Using all available antibiotics",
-      "Following treatment guidelines",
-      "Avoiding all antibiotics",
-      "Using only new antibiotics"
+      "Amoxicillin-clavulanate",
+      "Tigecycline",
+      "Azithromycin"
     ],
     correctAnswer: 1
   },
   {
     id: 31,
-    text: "Which approach best supports the AWaRe classification?",
+    text: "A 50-year-old patient develops sepsis from a catheter-related bloodstream infection caused by vancomycin-resistant Enterococcus faecium. What is the antibiotic of choice?",
     options: [
-      "Using only Reserve antibiotics",
-      "Ignoring antibiotic categories",
-      "Following the classification guidelines",
-      "Avoiding all antibiotics"
+      "Tigecycline",
+      "Meropenem",
+      "Linezolid"
     ],
     correctAnswer: 2
   }
