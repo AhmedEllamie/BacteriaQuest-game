@@ -5,20 +5,31 @@ import { Button } from "@/components/ui/button";
 import { auth, googleProvider } from "@/lib/firebase";
 import { signInWithPopup } from "firebase/auth";
 import { motion } from "framer-motion";
+import { useToast } from "@/hooks/use-toast";
 
 export default function Login() {
   const [, setLocation] = useLocation();
   const [isLoading, setIsLoading] = useState(false);
+  const { toast } = useToast();
 
   const handleGoogleLogin = async () => {
     try {
       setIsLoading(true);
       const result = await signInWithPopup(auth, googleProvider);
       if (result.user) {
+        toast({
+          title: "Welcome!",
+          description: "Successfully signed in.",
+        });
         setLocation("/welcome");
       }
-    } catch (error) {
+    } catch (error: any) {
       console.error("Error signing in with Google:", error);
+      toast({
+        title: "Sign in failed",
+        description: error.message || "Could not sign in with Google",
+        variant: "destructive",
+      });
     } finally {
       setIsLoading(false);
     }
