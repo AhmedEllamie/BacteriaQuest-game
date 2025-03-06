@@ -16,7 +16,7 @@ export default function Game() {
   const [isGrowing, setIsGrowing] = useState(false);
   const [mood, setMood] = useState<"happy" | "sad" | "neutral">("neutral");
   const [gameOver, setGameOver] = useState(false);
-  const [customImage, setCustomImage] = useState<string>();
+  const [customImage, setCustomImage] = useState<string>("attached_assets/game-removebg-preview.png");
 
   const saveMutation = useMutation({
     mutationFn: async (result: any) => {
@@ -64,18 +64,21 @@ export default function Game() {
   };
 
   return (
-    <div className="min-h-screen bg-background p-6">
+    <div 
+      className="min-h-screen bg-cover bg-center bg-no-repeat p-6"
+      style={{ backgroundImage: 'url(attached_assets/game1.jpg)' }}
+    >
       <div className="max-w-4xl mx-auto space-y-8">
         <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold mb-2">Bacteria Battle</h1>
-          <p className="text-muted-foreground">
+          <h1 className="text-4xl font-bold mb-2 text-white text-shadow">Bacteria Battle</h1>
+          <p className="text-white text-shadow">
             Question {currentQuestion + 1} of {questions.length}
           </p>
         </div>
 
         {!gameOver && currentQuestion === 0 && (
           <div className="mb-8">
-            <ImageUploader onImageUpload={setCustomImage} />
+            <ImageUploader onImageUploader={setCustomImage} />
           </div>
         )}
 
@@ -94,7 +97,7 @@ export default function Game() {
             disabled={gameOver}
           />
         ) : (
-          <div className="text-center">
+          <div className="text-center bg-white/90 rounded-lg p-8 backdrop-blur">
             <h2 className="text-2xl font-bold mb-4">Game Over!</h2>
             <p className="text-xl">Final Score: {score}</p>
             <p className="text-xl">Resistance Level: {resistance}%</p>
