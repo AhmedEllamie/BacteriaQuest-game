@@ -13,6 +13,7 @@ export default function Game() {
   const [resistance, setResistance] = useState(50);
   const [bacteriaSize, setBacteriaSize] = useState(1);
   const [isGrowing, setIsGrowing] = useState(false);
+  const [mood, setMood] = useState<"happy" | "sad" | "neutral">("neutral");
   const [gameOver, setGameOver] = useState(false);
 
   const saveMutation = useMutation({
@@ -23,19 +24,26 @@ export default function Game() {
 
   const handleAnswer = (answerIndex: number) => {
     const correct = questions[currentQuestion].correctAnswer === answerIndex;
-    
+
     if (correct) {
       playCorrectSound();
       setScore(score + 1);
       setResistance(Math.min(100, resistance + 5));
       setBacteriaSize(Math.max(0.5, bacteriaSize - 0.1));
       setIsGrowing(false);
+      setMood("happy");
     } else {
       playWrongSound();
       setResistance(Math.max(0, resistance - 5));
       setBacteriaSize(Math.min(2, bacteriaSize + 0.1));
       setIsGrowing(true);
+      setMood("sad");
     }
+
+    // Reset mood to neutral after a delay
+    setTimeout(() => {
+      setMood("neutral");
+    }, 2000);
 
     if (currentQuestion === questions.length - 1) {
       setGameOver(true);
@@ -61,7 +69,11 @@ export default function Game() {
           </p>
         </div>
 
-        <BacteriaAnimation isGrowing={isGrowing} size={bacteriaSize} />
+        <BacteriaAnimation 
+          isGrowing={isGrowing} 
+          size={bacteriaSize} 
+          mood={mood} 
+        />
         <ProgressBar resistance={resistance} />
 
         {!gameOver ? (
