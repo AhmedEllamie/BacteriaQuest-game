@@ -33,8 +33,8 @@ export default function Login() {
       >
         <Card className="w-full max-w-md">
           <CardHeader className="text-center">
-            <CardTitle className="text-2xl font-bold text-right">
-              مرحبًا بك في لعبة تصنيف المضادات الحيوية
+            <CardTitle className="text-2xl font-bold">
+              Welcome to WHO AWaRe Antibiotics Game
             </CardTitle>
           </CardHeader>
           <CardContent className="space-y-4">
@@ -43,7 +43,7 @@ export default function Login() {
               onClick={handleGoogleLogin}
               disabled={isLoading}
             >
-              {isLoading ? "جاري تسجيل الدخول..." : "تسجيل الدخول باستخدام Google"}
+              {isLoading ? "Signing in..." : "Sign in with Google"}
             </Button>
           </CardContent>
         </Card>
