@@ -5,15 +5,49 @@ interface BacteriaAnimationProps {
   isGrowing: boolean;
   size: number;
   mood: "happy" | "sad" | "neutral";
+  customImage?: string;
 }
 
-export function BacteriaAnimation({ isGrowing, size, mood }: BacteriaAnimationProps) {
+export function BacteriaAnimation({ isGrowing, size, mood, customImage }: BacteriaAnimationProps) {
   const [scale, setScale] = useState(1);
 
   useEffect(() => {
     setScale(size);
   }, [size]);
 
+  if (customImage) {
+    return (
+      <div className="w-48 h-48 mx-auto relative">
+        <motion.img
+          src={customImage}
+          alt="Custom bacteria mascot"
+          className="w-full h-full object-contain"
+          animate={{
+            scale,
+            rotate: isGrowing ? [0, 5, -5, 0] : 0,
+            filter: mood === "happy" ? "brightness(1.2)" : mood === "sad" ? "brightness(0.8)" : "brightness(1)",
+          }}
+          transition={{
+            rotate: {
+              repeat: Infinity,
+              duration: 2,
+              ease: "easeInOut",
+            },
+            scale: {
+              type: "spring",
+              stiffness: 260,
+              damping: 20
+            },
+            filter: {
+              duration: 0.3
+            }
+          }}
+        />
+      </div>
+    );
+  }
+
+  // Default SVG bacteria if no custom image
   return (
     <div className="w-48 h-48 mx-auto relative">
       <motion.svg
@@ -41,7 +75,7 @@ export function BacteriaAnimation({ isGrowing, size, mood }: BacteriaAnimationPr
           d="M100,40 C140,40 160,70 160,100 C160,130 140,160 100,160 C60,160 40,130 40,100 C40,70 60,40 100,40"
           fill="currentColor"
           animate={{
-            d: isGrowing 
+            d: isGrowing
               ? "M100,30 C145,30 170,65 170,100 C170,135 145,170 100,170 C55,170 30,135 30,100 C30,65 55,30 100,30"
               : "M100,40 C140,40 160,70 160,100 C160,130 140,160 100,160 C60,160 40,130 40,100 C40,70 60,40 100,40"
           }}

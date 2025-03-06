@@ -4,6 +4,7 @@ import { questions } from "@/lib/questions";
 import { BacteriaAnimation } from "@/components/game/BacteriaAnimation";
 import { ProgressBar } from "@/components/game/ProgressBar";
 import { QuestionCard } from "@/components/game/QuestionCard";
+import { ImageUploader } from "@/components/game/ImageUploader";
 import { playCorrectSound, playWrongSound, playGameOverSound } from "@/lib/audio";
 import { apiRequest } from "@/lib/queryClient";
 
@@ -15,6 +16,7 @@ export default function Game() {
   const [isGrowing, setIsGrowing] = useState(false);
   const [mood, setMood] = useState<"happy" | "sad" | "neutral">("neutral");
   const [gameOver, setGameOver] = useState(false);
+  const [customImage, setCustomImage] = useState<string>();
 
   const saveMutation = useMutation({
     mutationFn: async (result: any) => {
@@ -71,10 +73,17 @@ export default function Game() {
           </p>
         </div>
 
+        {!gameOver && currentQuestion === 0 && (
+          <div className="mb-8">
+            <ImageUploader onImageUpload={setCustomImage} />
+          </div>
+        )}
+
         <BacteriaAnimation 
           isGrowing={isGrowing} 
           size={bacteriaSize} 
-          mood={mood} 
+          mood={mood}
+          customImage={customImage}
         />
         <ProgressBar resistance={resistance} />
 
