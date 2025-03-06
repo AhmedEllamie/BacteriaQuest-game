@@ -62,11 +62,19 @@ export default function Game() {
   };
 
   return (
-    <div className="min-h-screen w-full bg-background p-6">
+    <div 
+      className="min-h-screen w-full bg-cover bg-center bg-no-repeat p-6"
+      style={{ 
+        backgroundImage: 'url(/attached_assets/game1.jpg)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      }}
+    >
       <div className="max-w-4xl mx-auto space-y-8">
         <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold mb-2">Bacteria Battle</h1>
-          <p className="text-muted-foreground">
+          <h1 className="text-4xl font-bold mb-2 text-white text-shadow">Bacteria Battle</h1>
+          <p className="text-white text-shadow">
             Question {currentQuestion + 1} of {questions.length}
           </p>
         </div>
@@ -85,7 +93,7 @@ export default function Game() {
             disabled={gameOver}
           />
         ) : (
-          <div className="text-center bg-white/90 rounded-lg p-8">
+          <div className="text-center bg-white/90 rounded-lg p-8 backdrop-blur">
             <h2 className="text-2xl font-bold mb-4">Game Over!</h2>
             <p className="text-xl">Final Score: {score}</p>
             <p className="text-xl">Resistance Level: {resistance}%</p>
