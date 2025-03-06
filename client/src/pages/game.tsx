@@ -63,12 +63,13 @@ export default function Game() {
 
   return (
     <div 
-      className="min-h-screen w-full bg-cover bg-center bg-no-repeat p-6"
+      className="min-h-screen w-full p-6"
       style={{ 
-        backgroundImage: 'url(/attached_assets/game1.jpg)',
+        backgroundImage: 'url(/attached_assets/game1.jpg) !important',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat'
+        backgroundRepeat: 'no-repeat',
+        backgroundColor: 'transparent'
       }}
     >
       <div className="max-w-4xl mx-auto space-y-8">
