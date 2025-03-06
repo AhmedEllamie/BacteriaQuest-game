@@ -15,7 +15,7 @@ export default function Game() {
   const [isGrowing, setIsGrowing] = useState(false);
   const [mood, setMood] = useState<"happy" | "sad" | "neutral">("neutral");
   const [gameOver, setGameOver] = useState(false);
-  const [customImage, setCustomImage] = useState<string>("attached_assets/game-removebg-preview.png");
+  const [customImage, setCustomImage] = useState<string>("/attached_assets/game-removebg-preview.png");
 
   const saveMutation = useMutation({
     mutationFn: async (result: any) => {
@@ -64,8 +64,13 @@ export default function Game() {
 
   return (
     <div 
-      className="min-h-screen bg-cover bg-center bg-no-repeat p-6"
-      style={{ backgroundImage: 'url(/attached_assets/game1.jpg)' }}
+      className="min-h-screen w-full bg-cover bg-center bg-no-repeat p-6"
+      style={{ 
+        backgroundImage: 'url(/attached_assets/game1.jpg)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      }}
     >
       <div className="max-w-4xl mx-auto space-y-8">
         <div className="text-center mb-8">
