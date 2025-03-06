@@ -28,16 +28,18 @@ export default function Game() {
     if (correct) {
       playCorrectSound();
       setScore(score + 1);
-      setResistance(Math.min(100, resistance + 5));
+      // Decrease resistance when correct (we're defeating the bacteria)
+      setResistance(Math.max(0, resistance - 5));
       setBacteriaSize(Math.max(0.5, bacteriaSize - 0.1));
       setIsGrowing(false);
-      setMood("happy");
+      setMood("sad"); // Bacteria is sad when we get it right
     } else {
       playWrongSound();
-      setResistance(Math.max(0, resistance - 5));
+      // Increase resistance when wrong (bacteria is winning)
+      setResistance(Math.min(100, resistance + 5));
       setBacteriaSize(Math.min(2, bacteriaSize + 0.1));
       setIsGrowing(true);
-      setMood("sad");
+      setMood("happy"); // Bacteria is happy when we get it wrong
     }
 
     // Reset mood to neutral after a delay
