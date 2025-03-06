@@ -1,10 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { useQuery, useMutation } from "@tanstack/react-query";
 import { questions } from "@/lib/questions";
 import { BacteriaAnimation } from "@/components/game/BacteriaAnimation";
 import { ProgressBar } from "@/components/game/ProgressBar";
 import { QuestionCard } from "@/components/game/QuestionCard";
-import { ImageUploader } from "@/components/game/ImageUploader";
 import { playCorrectSound, playWrongSound, playGameOverSound } from "@/lib/audio";
 import { apiRequest } from "@/lib/queryClient";
 
@@ -75,12 +74,6 @@ export default function Game() {
             Question {currentQuestion + 1} of {questions.length}
           </p>
         </div>
-
-        {!gameOver && currentQuestion === 0 && (
-          <div className="mb-8">
-            <ImageUploader onImageUploader={setCustomImage} />
-          </div>
-        )}
 
         <BacteriaAnimation 
           isGrowing={isGrowing} 
