@@ -1,0 +1,50 @@
+<body>
+    <div id="login-container">
+        <h1>مرحبًا بك في لعبة تصنيف المضادات الحيوية</h1>
+        <div id="g_id_onload" data-client_id="719838398388-of1a2utlbq9k66c2oe2ou398bas7cnb0.apps.googleusercontent.com"
+            data-callback="handleCredentialResponse" data-auto_prompt="false"></div>
+        <div class="g_id_signin" data-type="standard"></div>
+    </div>
+
+    <div id="user-info" style="display: none;">
+        <h2>مرحبًا، <span id="user-name"></span></h2>
+        <button onclick="logout()">تسجيل الخروج</button>
+    </div>
+
+    <div class="container" id="game-container">
+        <h1>لعبة تصنيف المضادات الحيوية (AWaRe)</h1>
+        <img id="bacteria" src="bacteria1.png" alt="Bacteria">
+        <div id="question">السؤال يظهر هنا</div>
+        <div class="options" id="options"></div>
+        <div id="feedback"></div>
+        <div id="progress">
+            <div class="bar">
+                <div class="green" style="width: 50%;"></div>
+                <div class="red" style="width: 50%;"></div>
+            </div>
+        </div>
+        <div id="final-result"></div>
+        <button id="reset-btn">إعادة اللعب</button>
+    </div>
+
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <script>
+        function handleCredentialResponse(response) {
+            const data = jwt_decode(response.credential);
+            document.getElementById("login-container").style.display = "none";
+            document.getElementById("user-info").style.display = "block";
+            document.getElementById("game-container").style.display = "block";
+            document.getElementById("user-name").textContent = data.name;
+        }
+
+        function logout() {
+            document.getElementById("login-container").style.display = "block";
+            document.getElementById("user-info").style.display = "none";
+            document.getElementById("game-container").style.display = "none";
+        }
+
+        (async function loadJwtDecode() {
+            const script = document.createElement("script");
+            script.src = "https://cdn.jsdelivr.net/npm/jwt-decode/build/jwt-decode.min.js";
+            document.head.appendChild(script);
+        })();

@@ -7,7 +7,6 @@ import { ProgressBar } from "@/components/game/ProgressBar";
 import { QuestionCard } from "@/components/game/QuestionCard";
 import { playCorrectSound, playWrongSound, playGameOverSound } from "@/lib/audio";
 import { apiRequest } from "@/lib/queryClient";
-import { auth } from "@/lib/firebase";
 
 export default function Game() {
   const [, setLocation] = useLocation();
@@ -20,20 +19,17 @@ export default function Game() {
   const [gameOver, setGameOver] = useState(false);
 
   useEffect(() => {
-    const unsubscribe = auth.onAuthStateChanged((user) => {
-      if (!user) {
-        setLocation("/login");
-      }
-    });
-
-    return () => unsubscribe();
+    const userName = localStorage.getItem('user_name');
+    if (!userName) {
+      setLocation("/login");
+    }
   }, [setLocation]);
 
   const saveMutation = useMutation({
     mutationFn: async (result: any) => {
       return apiRequest("POST", "/api/game/results", {
         ...result,
-        playerName: auth.currentUser?.displayName || "Anonymous"
+        playerName: localStorage.getItem('user_name') || "Anonymous"
       });
     }
   });
