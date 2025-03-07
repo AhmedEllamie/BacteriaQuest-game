@@ -53,15 +53,27 @@ export const playWelcomeSound = () => {
 };
 
 export const playCorrectSound = () => {
-  // Play a happy chord
-  const frequencies = [500, 600, 750];
-  frequencies.forEach((freq, index) => {
+  // Play clapping sound (multiple quick pulses)
+  const clapFrequencies = [1500, 2000, 1800];
+  clapFrequencies.forEach((freq, index) => {
     setTimeout(() => {
-      const { oscillator } = createOscillator(freq, 0.4, 0.6);
+      const { oscillator } = createOscillator(freq, 0.1, 0.3);
       oscillator.start();
-      oscillator.stop(audioContext.currentTime + 0.4);
+      oscillator.stop(audioContext.currentTime + 0.1);
     }, index * 100);
   });
+
+  // Play whistling sound (ascending tone)
+  setTimeout(() => {
+    const whistleFreqs = [2000, 2500, 3000];
+    whistleFreqs.forEach((freq, index) => {
+      setTimeout(() => {
+        const { oscillator } = createOscillator(freq, 0.2, 0.2);
+        oscillator.start();
+        oscillator.stop(audioContext.currentTime + 0.2);
+      }, index * 100);
+    });
+  }, 300);
 };
 
 export const playWrongSound = () => {

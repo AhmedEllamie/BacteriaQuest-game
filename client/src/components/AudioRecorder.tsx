@@ -55,7 +55,7 @@ export function AudioRecorder({ onSave }: AudioRecorderProps) {
         <div className="flex gap-4">
           {!isRecording ? (
             <Button onClick={startRecording}>
-              Start Recording
+              Record Your Welcome Message
             </Button>
           ) : (
             <Button onClick={stopRecording} variant="destructive">
