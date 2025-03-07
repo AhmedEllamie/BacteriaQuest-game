@@ -1,6 +1,7 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Question } from "@/lib/questions";
+import { CheckCircle2, XCircle } from "lucide-react";
 
 interface QuestionCardProps {
   question: Question;
@@ -8,9 +9,17 @@ interface QuestionCardProps {
   onContinue?: () => void;
   disabled?: boolean;
   showExplanation?: boolean;
+  isCorrect?: boolean;
 }
 
-export function QuestionCard({ question, onAnswer, onContinue, disabled, showExplanation }: QuestionCardProps) {
+export function QuestionCard({ 
+  question, 
+  onAnswer, 
+  onContinue, 
+  disabled, 
+  showExplanation,
+  isCorrect 
+}: QuestionCardProps) {
   return (
     <Card className="w-full bg-white shadow-lg border-2 border-[#e6d5a7] overflow-hidden">
       {/* Yellow header section */}
@@ -23,14 +32,23 @@ export function QuestionCard({ question, onAnswer, onContinue, disabled, showExp
         </div>
 
         {showExplanation && (
-          <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-4">
-            <h4 className="text-blue-800 font-medium mb-2">Explanation:</h4>
-            <p className="text-blue-700 text-sm">{question.explanation}</p>
+          <div className={`${isCorrect ? 'bg-green-50 border-green-200' : 'bg-blue-50 border-blue-200'} border rounded-lg p-4 mb-4`}>
+            <div className="flex items-center gap-2 mb-2">
+              {isCorrect ? (
+                <CheckCircle2 className="h-5 w-5 text-green-600" />
+              ) : (
+                <XCircle className="h-5 w-5 text-blue-600" />
+              )}
+              <h4 className={`${isCorrect ? 'text-green-800' : 'text-blue-800'} font-medium`}>
+                {isCorrect ? 'Correct!' : 'Let\'s Learn More'}
+              </h4>
+            </div>
+            <p className={`${isCorrect ? 'text-green-700' : 'text-blue-700'} text-sm`}>{question.explanation}</p>
             <Button 
               onClick={onContinue}
-              className="mt-4 bg-blue-600 hover:bg-blue-700 text-white"
+              className={`mt-4 ${isCorrect ? 'bg-green-600 hover:bg-green-700' : 'bg-blue-600 hover:bg-blue-700'} text-white`}
             >
-              Got it!
+              {isCorrect ? 'Next Question' : 'Try Next Question'}
             </Button>
           </div>
         )}

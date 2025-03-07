@@ -40,19 +40,16 @@ export default function Game() {
       setBacteriaSize(Math.max(0.5, bacteriaSize - 0.1));
       setIsGrowing(false);
       setMood("sad");
-
-      // Move to next question immediately if correct
-      moveToNextQuestion();
     } else {
       playWrongSound();
       setResistance(Math.min(100, resistance + 5));
       setBacteriaSize(Math.min(2, bacteriaSize + 0.1));
       setIsGrowing(true);
       setMood("happy");
-
-      // Show explanation for wrong answer
-      setShowExplanation(true);
     }
+
+    // Show explanation for both correct and wrong answers
+    setShowExplanation(true);
   };
 
   const handleContinue = () => {
@@ -113,6 +110,7 @@ export default function Game() {
                   onContinue={handleContinue}
                   disabled={gameOver}
                   showExplanation={showExplanation}
+                  isCorrect={isCorrect}
                 />
               </div>
             ) : (
