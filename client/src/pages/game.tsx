@@ -83,8 +83,8 @@ export default function Game() {
           </p>
         </div>
 
-        <div className="flex items-start gap-4">
-          <div className="flex-shrink-0">
+        <div className="flex items-start gap-8">
+          <div className="flex-shrink-0 mt-4">
             <DoctorAvatar 
               mood={mood === "happy" ? "sad" : mood === "sad" ? "happy" : "neutral"}
               isCorrect={isCorrect}

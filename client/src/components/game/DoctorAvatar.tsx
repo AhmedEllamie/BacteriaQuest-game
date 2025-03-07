@@ -18,13 +18,29 @@ export function DoctorAvatar({ mood, isCorrect }: DoctorAvatarProps) {
   }, []);
 
   return (
-    <div className="w-32 h-32 relative">
+    <div className="w-48 h-48 relative">
       <motion.svg
         viewBox="0 0 200 200"
         className="w-full h-full"
       >
         {/* Lab coat */}
-        <rect x="70" y="90" width="60" height="80" fill="#fff" rx="5" />
+        <path
+          d="M60,90 L90,90 C100,90 110,95 110,105 L110,170 C110,175 105,180 100,180 L70,180 C65,180 60,175 60,170 Z"
+          fill="#fff"
+          stroke="#e2e2e2"
+          strokeWidth="2"
+        />
+
+        {/* Coat collar */}
+        <path
+          d="M60,90 L75,105 L90,90"
+          fill="none"
+          stroke="#e2e2e2"
+          strokeWidth="2"
+        />
+
+        {/* Pocket */}
+        <rect x="75" y="130" width="20" height="25" rx="2" fill="none" stroke="#e2e2e2" strokeWidth="1" />
 
         {/* Doctor's head */}
         <motion.g
@@ -44,7 +60,14 @@ export function DoctorAvatar({ mood, isCorrect }: DoctorAvatarProps) {
           }}
           style={{ originX: "100", originY: "70" }}
         >
-          <circle cx="100" cy="70" r="20" fill="#FFD3B6" /> {/* Face */}
+          {/* Face */}
+          <circle cx="100" cy="70" r="25" fill="#FFD3B6" />
+
+          {/* Hair */}
+          <path
+            d="M75,60 Q100,50 125,60"
+            fill="#4A4A4A"
+          />
 
           {/* Eyes with glasses */}
           <motion.g
@@ -52,19 +75,32 @@ export function DoctorAvatar({ mood, isCorrect }: DoctorAvatarProps) {
               y: mood === "sad" ? 2 : 0
             }}
           >
-            <rect x="85" y="65" width="10" height="6" rx="2" fill="#666" /> {/* Left lens */}
-            <rect x="105" y="65" width="10" height="6" rx="2" fill="#666" /> {/* Right lens */}
-            <line x1="95" y1="68" x2="105" y2="68" stroke="#666" strokeWidth="1" /> {/* Bridge */}
+            {/* Glasses frame */}
+            <path
+              d="M85,65 L115,65"
+              stroke="#666"
+              strokeWidth="1"
+            />
+            {/* Left lens */}
+            <rect x="82" y="62" width="14" height="8" rx="4" fill="#f5f5f5" stroke="#666" strokeWidth="1" />
+            {/* Right lens */}
+            <rect x="104" y="62" width="14" height="8" rx="4" fill="#f5f5f5" stroke="#666" strokeWidth="1" />
+            {/* Bridge */}
+            <path
+              d="M96,66 L104,66"
+              stroke="#666"
+              strokeWidth="1"
+            />
           </motion.g>
 
           {/* Mouth */}
           <motion.path
             d={
               mood === "happy"
-                ? "M90,75 Q100,80 110,75" // Happy mouth
+                ? "M90,80 Q100,85 110,80" // Happy mouth
                 : mood === "sad"
-                ? "M90,78 Q100,73 110,78" // Sad mouth
-                : "M90,76 L110,76" // Neutral mouth
+                ? "M90,83 Q100,78 110,83" // Sad mouth
+                : "M90,81 L110,81" // Neutral mouth
             }
             stroke="#000"
             strokeWidth="1.5"
@@ -76,29 +112,44 @@ export function DoctorAvatar({ mood, isCorrect }: DoctorAvatarProps) {
         <motion.g
           animate={{
             x: [-2, 2, -2],
-            rotate: isCorrect ? [0, -10, 0] : [0, 2, 0]
+            rotate: isCorrect ? [0, -10, 0] : [0, 5, 0]
           }}
           transition={{
             x: {
-              duration: 2,
-              repeat: Infinity
+              duration: 3,
+              repeat: Infinity,
+              ease: "easeInOut"
             },
             rotate: {
               duration: 0.5
             }
           }}
         >
-          <rect x="120" y="100" width="20" height="5" fill="#FFD3B6" rx="2" /> {/* Arm */}
-          <circle cx="140" cy="102" r="3" fill="#FFD3B6" /> {/* Hand */}
+          {/* Arm */}
+          <path
+            d="M120,100 L140,105"
+            stroke="#FFD3B6"
+            strokeWidth="8"
+            strokeLinecap="round"
+          />
+          {/* Hand */}
+          <circle cx="145" cy="105" r="4" fill="#FFD3B6" />
         </motion.g>
 
         {/* Stethoscope */}
-        <motion.path
-          d="M80,100 Q70,110 80,120"
-          stroke="#4B9CD3"
-          strokeWidth="2"
-          fill="none"
-        />
+        <motion.g>
+          {/* Tube */}
+          <path
+            d="M80,90 C70,100 65,110 70,120 C75,130 85,125 90,120"
+            fill="none"
+            stroke="#4B9CD3"
+            strokeWidth="2"
+          />
+          {/* Earpieces */}
+          <circle cx="80" cy="90" r="3" fill="#4B9CD3" />
+          {/* Chest piece */}
+          <circle cx="90" cy="120" r="5" fill="#4B9CD3" />
+        </motion.g>
       </motion.svg>
     </div>
   );
