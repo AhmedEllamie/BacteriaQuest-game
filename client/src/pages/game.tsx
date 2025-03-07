@@ -91,7 +91,7 @@ export default function Game() {
               />
             </div>
             {!gameOver ? (
-              <div className="absolute top-24 -right-20 w-[400px] transform -rotate-6">
+              <div className="absolute top-24 -right-32 w-[450px] transform -rotate-6 z-20">
                 <QuestionCard
                   question={questions[currentQuestion]}
                   onAnswer={handleAnswer}

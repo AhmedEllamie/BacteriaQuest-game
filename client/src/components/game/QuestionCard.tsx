@@ -10,11 +10,14 @@ interface QuestionCardProps {
 
 export function QuestionCard({ question, onAnswer, disabled }: QuestionCardProps) {
   return (
-    <Card className="w-full bg-[#fff9e6] shadow-lg border-2 border-[#e6d5a7]">
-      <CardContent className="p-6 space-y-4">
-        <div className="border-b-2 border-[#e6d5a7] pb-4">
-          <h3 className="text-lg font-medium mb-1">Patient Case #{question.id}</h3>
-          <p className="text-base font-serif">{question.text}</p>
+    <Card className="w-full bg-white shadow-lg border-2 border-[#e6d5a7] overflow-hidden">
+      {/* Yellow header section */}
+      <div className="bg-[#f4d03f] p-3 border-b-2 border-[#e6d5a7]">
+        <h3 className="text-lg font-medium text-[#5d4037]">Patient Case #{question.id}</h3>
+      </div>
+      <CardContent className="p-6 space-y-4 bg-[#fff9e6]">
+        <div className="border-b border-[#e6d5a7] pb-4">
+          <p className="text-base font-serif leading-relaxed">{question.text}</p>
         </div>
         <div className="space-y-3 pt-2">
           {question.options.map((option, index) => (
