@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
@@ -8,11 +8,13 @@ export default function Landing() {
   const [isPlaying, setIsPlaying] = useState(false);
   const [audioLoaded, setAudioLoaded] = useState(false);
   const [audioError, setAudioError] = useState(false);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
 
   useEffect(() => {
     // Preload the audio file
     const audio = new Audio();
     audio.src = '/assets/welcome.mp3'; // Using assets path
+    audioRef.current = audio;
 
     audio.addEventListener('canplaythrough', () => {
       setAudioLoaded(true);
@@ -24,25 +26,30 @@ export default function Landing() {
     });
 
     return () => {
-      audio.removeEventListener('canplaythrough', () => {});
-      audio.removeEventListener('error', () => {});
+      // Cleanup when component unmounts
+      if (audioRef.current) {
+        audioRef.current.pause();
+        audioRef.current = null;
+      }
     };
   }, []);
 
   const handleWelcome = () => {
     setIsPlaying(true);
 
-    // Create a new audio instance for playing
-    const audio = new Audio('/assets/welcome.mp3');
-
-    audio.play().catch(error => {
-      console.error('Error playing audio:', error);
-      // Continue to next page even if audio fails
-      setLocation("/welcome");
-    });
+    if (audioRef.current) {
+      audioRef.current.play().catch(error => {
+        console.error('Error playing audio:', error);
+      });
+    }
 
     // Navigate after a minimum time
     setTimeout(() => {
+      // Stop audio before navigating
+      if (audioRef.current) {
+        audioRef.current.pause();
+        audioRef.current.currentTime = 0;
+      }
       setLocation("/welcome");
     }, 2000);
   };
