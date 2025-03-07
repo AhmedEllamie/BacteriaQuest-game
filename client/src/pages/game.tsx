@@ -83,11 +83,29 @@ export default function Game() {
           </p>
         </div>
 
-        <div className="flex justify-around items-center">
-          <DoctorAvatar 
-            mood={mood === "happy" ? "sad" : mood === "sad" ? "happy" : "neutral"}
-            isCorrect={isCorrect}
-          />
+        <div className="flex items-start gap-4">
+          <div className="flex-shrink-0">
+            <DoctorAvatar 
+              mood={mood === "happy" ? "sad" : mood === "sad" ? "happy" : "neutral"}
+              isCorrect={isCorrect}
+            />
+          </div>
+          {!gameOver ? (
+            <QuestionCard
+              question={questions[currentQuestion]}
+              onAnswer={handleAnswer}
+              disabled={gameOver}
+            />
+          ) : (
+            <div className="text-center bg-white/90 rounded-lg p-8 backdrop-blur">
+              <h2 className="text-2xl font-bold mb-4">Game Over!</h2>
+              <p className="text-xl">Final Score: {score}</p>
+              <p className="text-xl">Resistance Level: {resistance}%</p>
+            </div>
+          )}
+        </div>
+
+        <div className="flex justify-center">
           <BacteriaAnimation 
             isGrowing={isGrowing} 
             size={bacteriaSize} 
@@ -96,20 +114,6 @@ export default function Game() {
         </div>
 
         <ProgressBar resistance={resistance} />
-
-        {!gameOver ? (
-          <QuestionCard
-            question={questions[currentQuestion]}
-            onAnswer={handleAnswer}
-            disabled={gameOver}
-          />
-        ) : (
-          <div className="text-center bg-white/90 rounded-lg p-8 backdrop-blur">
-            <h2 className="text-2xl font-bold mb-4">Game Over!</h2>
-            <p className="text-xl">Final Score: {score}</p>
-            <p className="text-xl">Resistance Level: {resistance}%</p>
-          </div>
-        )}
       </div>
     </div>
   );
