@@ -36,7 +36,7 @@ export default function Welcome() {
           <CardContent className="space-y-6">
             <div className="prose prose-lg mx-auto">
               <p className="text-xl mb-6">
-                Hello everyone, and welcome! Today, we're doing something a little different—and fun! We'll be playing a game to enhance our awareness of the WHO AWaRe classification of antibiotics.
+                Hello everyone, and welcome! Today, we're doing something a little different—and fun! We'll be playing a game to enhance our awareness of the WHO AWaRe classification of antibiotics. As you all know, antimicrobial resistance is a growing global health challenge, and understanding the AWaRe framework is key to using antibiotics responsibly.
               </p>
 
               <p className="mb-6">
@@ -55,6 +55,10 @@ export default function Welcome() {
                 <li>Your task is to identify which AWaRe category the antibiotics belong to and make recommendations for use.</li>
                 <li>We'll discuss the answers together, and I'll share some helpful tips along the way.</li>
               </ul>
+
+              <p className="mb-6">
+                This is a great opportunity to collaborate, share insights, and strengthen our understanding of antibiotic stewardship. So, let's get started!
+              </p>
             </div>
 
             <div className="flex justify-center">
