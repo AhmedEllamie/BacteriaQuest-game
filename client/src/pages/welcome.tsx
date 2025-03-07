@@ -3,7 +3,7 @@ import { useLocation } from "wouter";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { playWelcomeSound } from "@/lib/audio";
+import { playWelcomeSound, stopWelcomeAudio } from "@/lib/audio";
 
 export default function Welcome() {
   const [, setLocation] = useLocation();
@@ -11,8 +11,7 @@ export default function Welcome() {
 
   const handleStart = () => {
     setIsPlaying(true);
-
-    // Play welcome sound
+    stopWelcomeAudio(); // Stop the welcome audio if it's still playing
     playWelcomeSound();
 
     // Navigate after a short delay

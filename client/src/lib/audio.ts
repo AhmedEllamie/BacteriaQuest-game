@@ -1,3 +1,20 @@
+let welcomeAudioRef: HTMLAudioElement | null = null;
+
+export const playWelcomeAudio = () => {
+  welcomeAudioRef = new Audio('/assets/welcome.mp3');
+  return welcomeAudioRef.play().catch(error => {
+    console.error('Error playing welcome audio:', error);
+  });
+};
+
+export const stopWelcomeAudio = () => {
+  if (welcomeAudioRef) {
+    welcomeAudioRef.pause();
+    welcomeAudioRef.currentTime = 0;
+    welcomeAudioRef = null;
+  }
+};
+
 const audioContext = new (window.AudioContext || window.webkitAudioContext)();
 
 const createOscillator = (frequency: number, duration: number, volume: number = 0.5) => {
