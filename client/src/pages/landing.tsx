@@ -12,7 +12,7 @@ export default function Landing() {
   useEffect(() => {
     // Preload the audio file
     const audio = new Audio();
-    audio.src = '/welcome.mp3'; // Using root path
+    audio.src = '/assets/welcome.mp3'; // Using assets path
 
     audio.addEventListener('canplaythrough', () => {
       setAudioLoaded(true);
@@ -33,7 +33,7 @@ export default function Landing() {
     setIsPlaying(true);
 
     // Create a new audio instance for playing
-    const audio = new Audio('/welcome.mp3');
+    const audio = new Audio('/assets/welcome.mp3');
 
     audio.play().catch(error => {
       console.error('Error playing audio:', error);
@@ -64,7 +64,7 @@ export default function Landing() {
         <Button
           size="lg"
           onClick={handleWelcome}
-          disabled={isPlaying || (!audioLoaded && !audioError)}
+          disabled={isPlaying}
           className="text-xl px-8 py-6 bg-gradient-to-r from-blue-600 to-violet-500 hover:from-blue-700 hover:to-violet-600"
         >
           {isPlaying ? "Loading..." : "Welcome"}
