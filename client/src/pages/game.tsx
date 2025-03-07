@@ -16,6 +16,7 @@ export default function Game() {
   const [isGrowing, setIsGrowing] = useState(false);
   const [mood, setMood] = useState<"happy" | "sad" | "neutral">("neutral");
   const [isCorrect, setIsCorrect] = useState(false);
+  const [showExplanation, setShowExplanation] = useState(false);
   const [gameOver, setGameOver] = useState(false);
 
   const saveMutation = useMutation({
@@ -37,20 +38,29 @@ export default function Game() {
       setResistance(Math.max(0, resistance - 5));
       setBacteriaSize(Math.max(0.5, bacteriaSize - 0.1));
       setIsGrowing(false);
-      setMood("sad"); 
+      setMood("sad");
+
+      // Move to next question immediately if correct
+      moveToNextQuestion();
     } else {
       playWrongSound();
       setResistance(Math.min(100, resistance + 5));
       setBacteriaSize(Math.min(2, bacteriaSize + 0.1));
       setIsGrowing(true);
-      setMood("happy"); 
+      setMood("happy");
+
+      // Show explanation for wrong answer
+      setShowExplanation(true);
+
+      // Add a slight delay before moving to the next question
+      setTimeout(() => {
+        setShowExplanation(false);
+        moveToNextQuestion();
+      }, 5000); // Show explanation for 5 seconds
     }
+  };
 
-    setTimeout(() => {
-      setMood("neutral");
-      setIsCorrect(false);
-    }, 2000);
-
+  const moveToNextQuestion = () => {
     if (currentQuestion === questions.length - 1) {
       setGameOver(true);
       playGameOverSound();
@@ -60,7 +70,11 @@ export default function Game() {
         completed: true
       });
     } else {
-      setCurrentQuestion(currentQuestion + 1);
+      setTimeout(() => {
+        setCurrentQuestion(currentQuestion + 1);
+        setMood("neutral");
+        setIsCorrect(false);
+      }, 500);
     }
   };
 
@@ -96,6 +110,7 @@ export default function Game() {
                   question={questions[currentQuestion]}
                   onAnswer={handleAnswer}
                   disabled={gameOver}
+                  showExplanation={showExplanation}
                 />
               </div>
             ) : (

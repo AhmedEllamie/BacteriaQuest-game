@@ -3,6 +3,7 @@ export interface Question {
   text: string;
   options: string[];
   correctAnswer: number;
+  explanation: string;
 }
 
 export const questions: Question[] = [
@@ -13,7 +14,8 @@ export const questions: Question[] = [
       "Yes",
       "No"
     ],
-    correctAnswer: 1
+    correctAnswer: 1,
+    explanation: "The AWaRe classification is specifically designed for antibiotics. It categorizes antibiotics into Access, Watch, and Reserve groups to guide their appropriate use and combat antimicrobial resistance."
   },
   {
     id: 2,
@@ -22,7 +24,8 @@ export const questions: Question[] = [
       "Yes",
       "No"
     ],
-    correctAnswer: 1
+    correctAnswer: 1,
+    explanation: "The AWaRe classification prioritizes the 'Access' group antibiotics, which are first-line treatments. 'Watch' antibiotics are second-line choices that should be used with caution due to their higher potential for developing resistance."
   },
   {
     id: 3,
@@ -31,7 +34,8 @@ export const questions: Question[] = [
       "Yes",
       "No"
     ],
-    correctAnswer: 0
+    correctAnswer: 0,
+    explanation: "While AWaRe aims to optimize antibiotic use, a specific 60% target for Access group consumption isn't explicitly stated. The focus is on responsible and appropriate use across all categories."
   },
   {
     id: 4,
@@ -40,7 +44,8 @@ export const questions: Question[] = [
       "Yes",
       "No"
     ],
-    correctAnswer: 1
+    correctAnswer: 1,
+    explanation: "Limiting the spread of multidrug-resistant infections is a key goal of the AWaRe classification.  The 'Watch' category helps achieve this by promoting judicious use of antibiotics with a higher resistance potential."
   },
   {
     id: 5,
@@ -49,7 +54,8 @@ export const questions: Question[] = [
       "Yes",
       "No"
     ],
-    correctAnswer: 1
+    correctAnswer: 1,
+    explanation: "No, prophylactic antibiotics should only be used in ICU patients when there's a high risk of infection based on clinical judgment and guidelines, not routinely for all patients."
   },
   {
     id: 6,
@@ -59,7 +65,8 @@ export const questions: Question[] = [
       "The ability of microorganisms to resist one antimicrobial agents from three different classes, making infections harder to treat",
       "The phenomenon where bacteria naturally lack susceptibility to all antibiotics"
     ],
-    correctAnswer: 1
+    correctAnswer: 1,
+    explanation: "Multidrug resistance (MDR) refers to a microorganism's resistance to multiple antimicrobial agents from different classes, significantly complicating treatment."
   },
   {
     id: 7,
@@ -68,7 +75,8 @@ export const questions: Question[] = [
       "Yes",
       "No"
     ],
-    correctAnswer: 0
+    correctAnswer: 0,
+    explanation: "Yes, Access antibiotics are generally safe and effective first-line treatments for common infections."
   },
   {
     id: 8,
@@ -77,7 +85,8 @@ export const questions: Question[] = [
       "Yes",
       "No"
     ],
-    correctAnswer: 0
+    correctAnswer: 0,
+    explanation: "While overuse of any antibiotic contributes to resistance, Access antibiotics, being first-line choices, are less likely to drive resistance compared to Watch or Reserve antibiotics if used appropriately."
   },
   {
     id: 9,
@@ -87,7 +96,8 @@ export const questions: Question[] = [
       "Ciprofloxacin",
       "Ceftriaxone"
     ],
-    correctAnswer: 0
+    correctAnswer: 0,
+    explanation: "Amoxicillin is generally the first-line treatment for otitis media in children due to its efficacy and safety profile."
   },
   {
     id: 10,
@@ -97,7 +107,8 @@ export const questions: Question[] = [
       "Recommend Nitrofurantoin",
       "Suggest Colistin"
     ],
-    correctAnswer: 1
+    correctAnswer: 1,
+    explanation: "For uncomplicated UTIs, Nitrofurantoin is often preferred over Ciprofloxacin due to its lower resistance potential."
   },
   {
     id: 11,
@@ -107,7 +118,8 @@ export const questions: Question[] = [
       "Oral Clindamycin",
       "Oral Ciprofloxacin"
     ],
-    correctAnswer: 0
+    correctAnswer: 0,
+    explanation: "Topical antibiotics like Mupirocin are generally preferred for mild skin infections like impetigo to minimize the risk of developing resistance."
   },
   {
     id: 12,
@@ -117,7 +129,8 @@ export const questions: Question[] = [
       "Meropenem",
       "Cefazolin"
     ],
-    correctAnswer: 2
+    correctAnswer: 2,
+    explanation: "Cefazolin is a commonly used antibiotic for surgical prophylaxis in breast surgery due to its broad-spectrum activity against common pathogens and low resistance."
   },
   {
     id: 13,
@@ -127,7 +140,8 @@ export const questions: Question[] = [
       "Levofloxacin",
       "Colistin"
     ],
-    correctAnswer: 0
+    correctAnswer: 0,
+    explanation: "Ampicillin and Gentamicin are frequently used in combination for neonatal sepsis due to their broad coverage of potential pathogens."
   },
   {
     id: 14,
@@ -137,7 +151,8 @@ export const questions: Question[] = [
       "Start empiric broad-spectrum antibiotics",
       "Prescribe a Reserve antibiotic like linezolid"
     ],
-    correctAnswer: 1
+    correctAnswer: 1,
+    explanation: "For foot ulcers in diabetic patients, empiric broad-spectrum antibiotics are often initiated after obtaining wound cultures to cover potential pathogens while awaiting results."
   },
   {
     id: 15,
@@ -147,7 +162,8 @@ export const questions: Question[] = [
       "Ciprofloxacin",
       "Linezolid"
     ],
-    correctAnswer: 0
+    correctAnswer: 0,
+    explanation: "Doxycycline is frequently used as an initial antibiotic choice for COPD exacerbations due to its effectiveness against common respiratory pathogens."
   },
   {
     id: 16,
@@ -157,7 +173,8 @@ export const questions: Question[] = [
       "Ciprofloxacin",
       "Amoxicillin"
     ],
-    correctAnswer: 1
+    correctAnswer: 1,
+    explanation: "Ciprofloxacin or another fluoroquinolone is often a first-line treatment option for uncomplicated upper UTIs."
   },
   {
     id: 17,
@@ -167,7 +184,8 @@ export const questions: Question[] = [
       "Tigecycline",
       "Metronidazole"
     ],
-    correctAnswer: 2
+    correctAnswer: 2,
+    explanation: "Metronidazole is an example of an Access antibiotic,  used for anaerobic infections."
   },
   {
     id: 18,
@@ -176,7 +194,8 @@ export const questions: Question[] = [
       "Yes",
       "No"
     ],
-    correctAnswer: 1
+    correctAnswer: 1,
+    explanation: "Amikacin is typically considered a Watch antibiotic due to its potential for nephrotoxicity and ototoxicity, and the increasing prevalence of resistance."
   },
   {
     id: 19,
@@ -185,7 +204,8 @@ export const questions: Question[] = [
       "Yes",
       "No"
     ],
-    correctAnswer: 0
+    correctAnswer: 0,
+    explanation: "Yes, Watch antibiotics generally have a higher potential for developing resistance compared to Access antibiotics due to their mechanisms of action and prior usage."
   },
   {
     id: 20,
@@ -195,7 +215,8 @@ export const questions: Question[] = [
       "Colistin",
       "Sulfamethoxazole/trimethoprim"
     ],
-    correctAnswer: 0
+    correctAnswer: 0,
+    explanation: "Levofloxacin is an example of a Watch antibiotic."
   },
   {
     id: 21,
@@ -205,7 +226,8 @@ export const questions: Question[] = [
       "Amoxicillin",
       "Ciprofloxacin"
     ],
-    correctAnswer: 0
+    correctAnswer: 0,
+    explanation: "Oral Vancomycin can be used to treat antibiotic-associated diarrhea caused by Clostridium difficile."
   },
   {
     id: 22,
@@ -215,7 +237,8 @@ export const questions: Question[] = [
       "Clindamycin",
       "Ciprofloxacin"
     ],
-    correctAnswer: 0
+    correctAnswer: 0,
+    explanation: "Piperacillin-tazobactam is a broad-spectrum antibiotic often used empirically for perforated bowel to cover various potential pathogens."
   },
   {
     id: 23,
@@ -225,7 +248,8 @@ export const questions: Question[] = [
       "Ciprofloxacin",
       "Azithromycin"
     ],
-    correctAnswer: 0
+    correctAnswer: 0,
+    explanation: "Ceftriaxone is the recommended treatment for gonorrhea due to increasing resistance to other antibiotics like Ciprofloxacin."
   },
   {
     id: 24,
@@ -235,7 +259,8 @@ export const questions: Question[] = [
       "Ceftriaxone",
       "Linezolid"
     ],
-    correctAnswer: 1
+    correctAnswer: 1,
+    explanation: "Ceftriaxone is often the antibiotic of choice for typhoid fever (Salmonella typhi) due to its efficacy and safety profile."
   },
   {
     id: 25,
@@ -245,7 +270,8 @@ export const questions: Question[] = [
       "Tigecycline",
       "Vancomycin"
     ],
-    correctAnswer: 2
+    correctAnswer: 2,
+    explanation: "Vancomycin is frequently used as first-line therapy for MRSA infections due to its effectiveness and safety profile."
   },
   {
     id: 26,
@@ -254,7 +280,8 @@ export const questions: Question[] = [
       "Yes",
       "No"
     ],
-    correctAnswer: 0
+    correctAnswer: 0,
+    explanation: "Yes, Reserve antibiotics are used as a last resort for severe infections when other antibiotics have failed, primarily due to high resistance potential."
   },
   {
     id: 27,
@@ -264,7 +291,8 @@ export const questions: Question[] = [
       "Gentamicin",
       "Colistin"
     ],
-    correctAnswer: 2
+    correctAnswer: 2,
+    explanation: "Colistin is a Reserve antibiotic due to its toxicity and significant potential for resistance development."
   },
   {
     id: 28,
@@ -274,7 +302,8 @@ export const questions: Question[] = [
       "Colistin",
       "Ciprofloxacin"
     ],
-    correctAnswer: 1
+    correctAnswer: 1,
+    explanation: "Colistin is often used for CRKP infections due to its effectiveness against multidrug-resistant Gram-negative bacteria."
   },
   {
     id: 29,
@@ -284,7 +313,8 @@ export const questions: Question[] = [
       "Cefepime",
       "Colistin"
     ],
-    correctAnswer: 2
+    correctAnswer: 2,
+    explanation: "Colistin is often the antibiotic of choice for ventilator-associated pneumonia caused by carbapenem-resistant Klebsiella pneumoniae."
   },
   {
     id: 30,
@@ -294,7 +324,8 @@ export const questions: Question[] = [
       "Tigecycline",
       "Azithromycin"
     ],
-    correctAnswer: 1
+    correctAnswer: 1,
+    explanation: "Tigecycline is often used for multidrug-resistant Acinetobacter baumannii infections due to its broad-spectrum activity."
   },
   {
     id: 31,
@@ -304,6 +335,7 @@ export const questions: Question[] = [
       "Meropenem",
       "Linezolid"
     ],
-    correctAnswer: 2
+    correctAnswer: 2,
+    explanation: "Linezolid is often used for vancomycin-resistant Enterococcus faecium infections due to its effectiveness and safety profile."
   }
 ];
