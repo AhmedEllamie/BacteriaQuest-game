@@ -1,41 +1,35 @@
-import { useState, useEffect } from "react";
-import { useLocation } from "wouter";
+import { useState } from "react";
 import { useQuery, useMutation } from "@tanstack/react-query";
 import { questions } from "@/lib/questions";
 import { BacteriaAnimation } from "@/components/game/BacteriaAnimation";
+import { DoctorAvatar } from "@/components/game/DoctorAvatar";
 import { ProgressBar } from "@/components/game/ProgressBar";
 import { QuestionCard } from "@/components/game/QuestionCard";
 import { playCorrectSound, playWrongSound, playGameOverSound } from "@/lib/audio";
 import { apiRequest } from "@/lib/queryClient";
 
 export default function Game() {
-  const [, setLocation] = useLocation();
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [score, setScore] = useState(0);
   const [resistance, setResistance] = useState(50);
   const [bacteriaSize, setBacteriaSize] = useState(1);
   const [isGrowing, setIsGrowing] = useState(false);
   const [mood, setMood] = useState<"happy" | "sad" | "neutral">("neutral");
+  const [isCorrect, setIsCorrect] = useState(false);
   const [gameOver, setGameOver] = useState(false);
-
-  useEffect(() => {
-    const userName = localStorage.getItem('user_name');
-    if (!userName) {
-      setLocation("/login");
-    }
-  }, [setLocation]);
 
   const saveMutation = useMutation({
     mutationFn: async (result: any) => {
       return apiRequest("POST", "/api/game/results", {
         ...result,
-        playerName: localStorage.getItem('user_name') || "Anonymous"
+        playerName: "Player"
       });
     }
   });
 
   const handleAnswer = (answerIndex: number) => {
     const correct = questions[currentQuestion].correctAnswer === answerIndex;
+    setIsCorrect(correct);
 
     if (correct) {
       playCorrectSound();
@@ -43,17 +37,18 @@ export default function Game() {
       setResistance(Math.max(0, resistance - 5));
       setBacteriaSize(Math.max(0.5, bacteriaSize - 0.1));
       setIsGrowing(false);
-      setMood("sad");
+      setMood("sad"); // Bacteria is sad when we get it right
     } else {
       playWrongSound();
       setResistance(Math.min(100, resistance + 5));
       setBacteriaSize(Math.min(2, bacteriaSize + 0.1));
       setIsGrowing(true);
-      setMood("happy");
+      setMood("happy"); // Bacteria is happy when we get it wrong
     }
 
     setTimeout(() => {
       setMood("neutral");
+      setIsCorrect(false);
     }, 2000);
 
     if (currentQuestion === questions.length - 1) {
@@ -88,11 +83,18 @@ export default function Game() {
           </p>
         </div>
 
-        <BacteriaAnimation 
-          isGrowing={isGrowing} 
-          size={bacteriaSize} 
-          mood={mood}
-        />
+        <div className="flex justify-around items-center">
+          <DoctorAvatar 
+            mood={mood === "happy" ? "sad" : mood === "sad" ? "happy" : "neutral"}
+            isCorrect={isCorrect}
+          />
+          <BacteriaAnimation 
+            isGrowing={isGrowing} 
+            size={bacteriaSize} 
+            mood={mood}
+          />
+        </div>
+
         <ProgressBar resistance={resistance} />
 
         {!gameOver ? (
