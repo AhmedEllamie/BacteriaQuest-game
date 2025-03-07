@@ -14,6 +14,17 @@ const createOscillator = (frequency: number, duration: number, volume: number = 
   return { oscillator, gainNode };
 };
 
+export const speakWelcome = (text: string) => {
+  // Check if speech synthesis is supported
+  if ('speechSynthesis' in window) {
+    const utterance = new SpeechSynthesisUtterance(text);
+    utterance.rate = 0.9; // Slightly slower rate for clarity
+    utterance.pitch = 1;
+    utterance.volume = 1;
+    window.speechSynthesis.speak(utterance);
+  }
+};
+
 export const playWelcomeSound = () => {
   // Play a pleasant ascending arpeggio
   const frequencies = [400, 500, 600];

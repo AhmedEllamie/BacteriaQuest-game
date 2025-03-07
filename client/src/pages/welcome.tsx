@@ -3,7 +3,7 @@ import { useLocation } from "wouter";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { playWelcomeSound } from "@/lib/audio";
+import { playWelcomeSound, speakWelcome } from "@/lib/audio";
 
 export default function Welcome() {
   const [, setLocation] = useLocation();
@@ -11,6 +11,9 @@ export default function Welcome() {
 
   const handleStart = () => {
     setIsPlaying(true);
+
+    // Play welcome sound and speak welcome message
+    speakWelcome("Welcome to the WHO AWaRe Antibiotics Game! Let's learn about antibiotic stewardship through this interactive experience.");
     const soundDuration = playWelcomeSound();
 
     // Navigate after the welcome sound finishes
