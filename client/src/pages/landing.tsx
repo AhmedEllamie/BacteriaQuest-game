@@ -9,10 +9,14 @@ export default function Landing() {
 
   const handleWelcome = () => {
     setIsPlaying(true);
-    
+
     // Play the welcome audio file
     const audio = new Audio('/assets/welcome.mp3');
-    audio.play();
+    audio.play().catch(error => {
+      console.error('Error playing audio:', error);
+      // Continue to next page even if audio fails
+      setLocation("/welcome");
+    });
 
     // Navigate after audio finishes or after a minimum time
     setTimeout(() => {
