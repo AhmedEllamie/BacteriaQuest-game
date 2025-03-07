@@ -1,6 +1,6 @@
 const audioContext = new (window.AudioContext || window.webkitAudioContext)();
 
-const createOscillator = (frequency: number, duration: number) => {
+const createOscillator = (frequency: number, duration: number, volume: number = 0.5) => {
   const oscillator = audioContext.createOscillator();
   const gainNode = audioContext.createGain();
 
@@ -8,7 +8,7 @@ const createOscillator = (frequency: number, duration: number) => {
   gainNode.connect(audioContext.destination);
 
   oscillator.frequency.setValueAtTime(frequency, audioContext.currentTime);
-  gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+  gainNode.gain.setValueAtTime(volume, audioContext.currentTime);
   gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + duration);
 
   return { oscillator, gainNode };
@@ -19,29 +19,46 @@ export const playWelcomeSound = () => {
   const frequencies = [400, 500, 600];
   frequencies.forEach((freq, index) => {
     setTimeout(() => {
-      const { oscillator } = createOscillator(freq, 0.3);
+      const { oscillator } = createOscillator(freq, 0.5, 0.6);
       oscillator.start();
-      oscillator.stop(audioContext.currentTime + 0.3);
-    }, index * 200);
+      oscillator.stop(audioContext.currentTime + 0.5);
+    }, index * 300);
   });
-  // Return total duration of the welcome sound
-  return frequencies.length * 200;
+  return frequencies.length * 300;
 };
 
 export const playCorrectSound = () => {
-  const { oscillator } = createOscillator(800, 0.2);
-  oscillator.start();
-  oscillator.stop(audioContext.currentTime + 0.2);
+  // Play a happy chord
+  const frequencies = [500, 600, 750];
+  frequencies.forEach((freq, index) => {
+    setTimeout(() => {
+      const { oscillator } = createOscillator(freq, 0.4, 0.6);
+      oscillator.start();
+      oscillator.stop(audioContext.currentTime + 0.4);
+    }, index * 100);
+  });
 };
 
 export const playWrongSound = () => {
-  const { oscillator } = createOscillator(300, 0.3);
-  oscillator.start();
-  oscillator.stop(audioContext.currentTime + 0.3);
+  // Play a descending error sound
+  const frequencies = [300, 250, 200];
+  frequencies.forEach((freq, index) => {
+    setTimeout(() => {
+      const { oscillator } = createOscillator(freq, 0.4, 0.6);
+      oscillator.start();
+      oscillator.stop(audioContext.currentTime + 0.4);
+    }, index * 100);
+  });
 };
 
 export const playGameOverSound = () => {
-  const { oscillator } = createOscillator(400, 1);
-  oscillator.start();
-  oscillator.stop(audioContext.currentTime + 1);
+  // Play a dramatic ending sound
+  const frequencies = [400, 300, 200];
+  frequencies.forEach((freq, index) => {
+    setTimeout(() => {
+      const { oscillator } = createOscillator(freq, 0.6, 0.7);
+      oscillator.start();
+      oscillator.stop(audioContext.currentTime + 0.6);
+    }, index * 200);
+  });
 };
