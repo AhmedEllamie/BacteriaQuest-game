@@ -4,31 +4,21 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { playWelcomeSound } from "@/lib/audio";
-import { AudioRecorder } from "@/components/AudioRecorder";
 
 export default function Welcome() {
   const [, setLocation] = useLocation();
   const [isPlaying, setIsPlaying] = useState(false);
-  const [welcomeAudio, setWelcomeAudio] = useState<Blob | null>(null);
 
   const handleStart = () => {
     setIsPlaying(true);
 
-    // Play welcome sound and recorded message if available
+    // Play welcome sound
     playWelcomeSound();
-    if (welcomeAudio) {
-      const audio = new Audio(URL.createObjectURL(welcomeAudio));
-      audio.play();
-    }
 
-    // Navigate after the welcome audio finishes
+    // Navigate after a short delay
     setTimeout(() => {
       setLocation("/game");
-    }, 20000);
-  };
-
-  const handleAudioSave = (audioBlob: Blob) => {
-    setWelcomeAudio(audioBlob);
+    }, 2000);
   };
 
   return (
@@ -68,19 +58,15 @@ export default function Welcome() {
               </ul>
             </div>
 
-            <div className="space-y-6">
-              <AudioRecorder onSave={handleAudioSave} />
-
-              <div className="flex justify-center">
-                <Button
-                  size="lg"
-                  onClick={handleStart}
-                  disabled={isPlaying}
-                  className="w-48"
-                >
-                  {isPlaying ? "Starting..." : "Start Game"}
-                </Button>
-              </div>
+            <div className="flex justify-center">
+              <Button
+                size="lg"
+                onClick={handleStart}
+                disabled={isPlaying}
+                className="w-48"
+              >
+                {isPlaying ? "Starting..." : "Start Game"}
+              </Button>
             </div>
           </CardContent>
         </Card>
