@@ -83,37 +83,41 @@ export default function Game() {
           </p>
         </div>
 
-        <div className="flex items-start gap-8">
-          <div className="flex-shrink-0 mt-4">
-            <DoctorAvatar 
-              mood={mood === "happy" ? "sad" : mood === "sad" ? "happy" : "neutral"}
-              isCorrect={isCorrect}
+        <div className="flex flex-col gap-8">
+          <div className="flex items-start gap-8">
+            <div className="flex-shrink-0 mt-4">
+              <DoctorAvatar 
+                mood={mood === "happy" ? "sad" : mood === "sad" ? "happy" : "neutral"}
+                isCorrect={isCorrect}
+              />
+            </div>
+            {!gameOver ? (
+              <div className="flex-grow">
+                <QuestionCard
+                  question={questions[currentQuestion]}
+                  onAnswer={handleAnswer}
+                  disabled={gameOver}
+                />
+              </div>
+            ) : (
+              <div className="text-center bg-white/90 rounded-lg p-8 backdrop-blur">
+                <h2 className="text-2xl font-bold mb-4">Game Over!</h2>
+                <p className="text-xl">Final Score: {score}</p>
+                <p className="text-xl">Resistance Level: {resistance}%</p>
+              </div>
+            )}
+          </div>
+
+          <div className="flex justify-center">
+            <BacteriaAnimation 
+              isGrowing={isGrowing} 
+              size={bacteriaSize} 
+              mood={mood}
             />
           </div>
-          {!gameOver ? (
-            <QuestionCard
-              question={questions[currentQuestion]}
-              onAnswer={handleAnswer}
-              disabled={gameOver}
-            />
-          ) : (
-            <div className="text-center bg-white/90 rounded-lg p-8 backdrop-blur">
-              <h2 className="text-2xl font-bold mb-4">Game Over!</h2>
-              <p className="text-xl">Final Score: {score}</p>
-              <p className="text-xl">Resistance Level: {resistance}%</p>
-            </div>
-          )}
-        </div>
 
-        <div className="flex justify-center">
-          <BacteriaAnimation 
-            isGrowing={isGrowing} 
-            size={bacteriaSize} 
-            mood={mood}
-          />
+          <ProgressBar resistance={resistance} />
         </div>
-
-        <ProgressBar resistance={resistance} />
       </div>
     </div>
   );

@@ -108,32 +108,19 @@ export function DoctorAvatar({ mood, isCorrect }: DoctorAvatarProps) {
           />
         </motion.g>
 
-        {/* Pointing hand */}
+        {/* Clipboard */}
         <motion.g
           animate={{
-            x: [-2, 2, -2],
-            rotate: isCorrect ? [0, -10, 0] : [0, 5, 0]
+            rotate: isCorrect ? [0, -5, 0] : [0, 2, 0]
           }}
           transition={{
-            x: {
-              duration: 3,
-              repeat: Infinity,
-              ease: "easeInOut"
-            },
-            rotate: {
-              duration: 0.5
-            }
+            duration: 0.5
           }}
         >
-          {/* Arm */}
-          <path
-            d="M120,100 L140,105"
-            stroke="#FFD3B6"
-            strokeWidth="8"
-            strokeLinecap="round"
-          />
-          {/* Hand */}
-          <circle cx="145" cy="105" r="4" fill="#FFD3B6" />
+          <rect x="120" y="100" width="30" height="40" fill="#f4d03f" rx="2" /> {/* Clipboard */}
+          <rect x="125" y="105" width="20" height="2" fill="#666" /> {/* Lines */}
+          <rect x="125" y="110" width="15" height="2" fill="#666" />
+          <rect x="125" y="115" width="18" height="2" fill="#666" />
         </motion.g>
 
         {/* Stethoscope */}
