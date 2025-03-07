@@ -37,13 +37,13 @@ export default function Game() {
       setResistance(Math.max(0, resistance - 5));
       setBacteriaSize(Math.max(0.5, bacteriaSize - 0.1));
       setIsGrowing(false);
-      setMood("sad"); // Bacteria is sad when we get it right
+      setMood("sad"); 
     } else {
       playWrongSound();
       setResistance(Math.min(100, resistance + 5));
       setBacteriaSize(Math.min(2, bacteriaSize + 0.1));
       setIsGrowing(true);
-      setMood("happy"); // Bacteria is happy when we get it wrong
+      setMood("happy"); 
     }
 
     setTimeout(() => {
@@ -68,7 +68,7 @@ export default function Game() {
     <div 
       className="min-h-screen w-full p-6"
       style={{ 
-        backgroundImage: 'url(/attached_assets/game1.jpg)',
+        backgroundImage: 'url(/assets/game1.jpg)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat'
@@ -83,15 +83,15 @@ export default function Game() {
         </div>
 
         <div className="flex flex-col gap-8">
-          <div className="flex items-start gap-8">
-            <div className="flex-shrink-0 mt-4">
+          <div className="flex items-start justify-center relative">
+            <div className="flex-shrink-0 z-10">
               <DoctorAvatar 
                 mood={mood === "happy" ? "sad" : mood === "sad" ? "happy" : "neutral"}
                 isCorrect={isCorrect}
               />
             </div>
             {!gameOver ? (
-              <div className="flex-grow">
+              <div className="absolute top-24 -right-20 w-[400px] transform -rotate-6">
                 <QuestionCard
                   question={questions[currentQuestion]}
                   onAnswer={handleAnswer}

@@ -8,7 +8,7 @@ interface DoctorAvatarProps {
 export function DoctorAvatar({ mood, isCorrect }: DoctorAvatarProps) {
   return (
     <motion.div
-      className="w-48 h-48 relative"
+      className="w-72 h-72 relative"
       style={{
         backgroundImage: 'url(/assets/doctor-removebg-preview.png)',
         backgroundSize: 'contain',
