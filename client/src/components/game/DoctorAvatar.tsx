@@ -10,7 +10,7 @@ export function DoctorAvatar({ mood, isCorrect }: DoctorAvatarProps) {
     <motion.div
       className="w-48 h-48 relative"
       style={{
-        backgroundImage: 'url(/attached_assets/doctor-removebg-preview.png)',
+        backgroundImage: 'url(/assets/doctor-removebg-preview.png)',
         backgroundSize: 'contain',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat'
