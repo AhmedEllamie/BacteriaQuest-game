@@ -9,17 +9,34 @@ export default function Welcome() {
   const [, setLocation] = useLocation();
   const [isPlaying, setIsPlaying] = useState(false);
 
+  const welcomeText = `WHO AWaRe Antibiotics Game
+
+Hello everyone, and welcome! Today, we're doing something a little different—and fun! We'll be playing a game to enhance our awareness of the WHO AWaRe classification of antibiotics. As you all know, antimicrobial resistance is a growing global health challenge, and understanding the AWaRe framework is key to using antibiotics responsibly.
+
+This game is designed to be engaging, interactive, and educational. Before we begin, here's a quick recap of the AWaRe categories:
+
+Access antibiotics: These are the first-line treatments for common infections.
+Watch antibiotics: These require careful monitoring as they have higher resistance potential.
+Reserve antibiotics: These are the last resort options, reserved for severe, multidrug-resistant infections.
+
+Here's how it works:
+I'll present different scenarios related to antibiotic use.
+Your task is to identify which AWaRe category the antibiotics belong to and make recommendations for use.
+We'll discuss the answers together, and I'll share some helpful tips along the way.
+
+This is a great opportunity to collaborate, share insights, and strengthen our understanding of antibiotic stewardship. So, let's get started!`;
+
   const handleStart = () => {
     setIsPlaying(true);
 
     // Play welcome sound and speak welcome message
-    speakWelcome("Welcome to the WHO AWaRe Antibiotics Game! Let's learn about antibiotic stewardship through this interactive experience.");
+    speakWelcome(welcomeText);
     const soundDuration = playWelcomeSound();
 
-    // Navigate after the welcome sound finishes
+    // Navigate after longer delay to allow for speech
     setTimeout(() => {
       setLocation("/game");
-    }, soundDuration);
+    }, 20000); // Give more time for the full welcome message
   };
 
   return (

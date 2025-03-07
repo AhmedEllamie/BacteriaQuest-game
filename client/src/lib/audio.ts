@@ -17,11 +17,25 @@ const createOscillator = (frequency: number, duration: number, volume: number = 
 export const speakWelcome = (text: string) => {
   // Check if speech synthesis is supported
   if ('speechSynthesis' in window) {
-    const utterance = new SpeechSynthesisUtterance(text);
-    utterance.rate = 0.9; // Slightly slower rate for clarity
-    utterance.pitch = 1;
-    utterance.volume = 1;
-    window.speechSynthesis.speak(utterance);
+    // Split text into paragraphs for better pacing
+    const paragraphs = text.split('\n\n').filter(p => p.trim());
+
+    // Queue each paragraph for speaking
+    paragraphs.forEach((paragraph, index) => {
+      const utterance = new SpeechSynthesisUtterance(paragraph);
+      utterance.rate = 0.9; // Slightly slower rate for clarity
+      utterance.pitch = 1;
+      utterance.volume = 1;
+
+      // Add a small delay between paragraphs
+      utterance.onstart = () => {
+        if (index > 0) {
+          setTimeout(() => {}, 500);
+        }
+      };
+
+      window.speechSynthesis.speak(utterance);
+    });
   }
 };
 
