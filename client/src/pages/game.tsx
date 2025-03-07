@@ -116,8 +116,51 @@ export default function Game() {
             ) : (
               <div className="text-center bg-white/90 rounded-lg p-8 backdrop-blur">
                 <h2 className="text-2xl font-bold mb-4">Game Over!</h2>
-                <p className="text-xl">Final Score: {score}</p>
-                <p className="text-xl">Resistance Level: {resistance}%</p>
+                <p className="text-xl mb-4">Final Score: {score}</p>
+                <p className="text-xl mb-6">Resistance Level: {resistance}%</p>
+
+                <div className="prose prose-lg mx-auto space-y-6">
+                  <p>
+                    Excellent work! That brings us to the end of our game on the WHO AWaRe classification of antibiotics.
+                  </p>
+
+                  <p>
+                    You've shown incredible enthusiasm and knowledge in tackling these questions. Remember, the AWaRe classification isn't just about understanding categories—it's about making informed choices to fight antimicrobial resistance and safeguard patient health.
+                  </p>
+
+                  <div className="bg-blue-50 p-4 rounded-lg">
+                    <h3 className="text-xl font-semibold mb-3">Key Takeaways:</h3>
+                    <ul className="list-disc pl-6 space-y-2">
+                      <li>Use Access antibiotics as the first choice for common infections.</li>
+                      <li>Be cautious with Watch antibiotics to prevent resistance.</li>
+                      <li>Reserve antibiotics for critical, multidrug-resistant infections.</li>
+                    </ul>
+                  </div>
+
+                  <div className="mt-8">
+                    <h3 className="text-xl font-semibold mb-4">Your Achievement</h3>
+                    {score >= 25 && resistance <= 30 ? (
+                      <div className="bg-yellow-100 p-4 rounded-lg">
+                        <p className="text-lg font-medium text-yellow-800">🏅 Gold Medal</p>
+                        <p className="text-sm">Outstanding knowledge of the AWaRe classification!</p>
+                      </div>
+                    ) : score >= 20 && resistance <= 40 ? (
+                      <div className="bg-gray-100 p-4 rounded-lg">
+                        <p className="text-lg font-medium text-gray-700">🥈 Silver Medal</p>
+                        <p className="text-sm">Great understanding of antibiotic stewardship principles!</p>
+                      </div>
+                    ) : (
+                      <div className="bg-orange-100 p-4 rounded-lg">
+                        <p className="text-lg font-medium text-orange-800">🥉 Bronze Medal</p>
+                        <p className="text-sm">Excellent engagement and enthusiasm!</p>
+                      </div>
+                    )}
+                  </div>
+
+                  <p className="mt-6">
+                    Thank you for your dedication, and let's continue to apply what we've learned today in our daily practice.
+                  </p>
+                </div>
               </div>
             )}
           </div>
