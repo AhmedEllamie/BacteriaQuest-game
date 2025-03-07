@@ -68,11 +68,10 @@ export default function Game() {
     <div 
       className="min-h-screen w-full p-6"
       style={{ 
-        backgroundImage: 'url(/attached_assets/game1.jpg) !important',
+        backgroundImage: 'url(/attached_assets/game1.jpg)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
-        backgroundColor: 'transparent'
+        backgroundRepeat: 'no-repeat'
       }}
     >
       <div className="max-w-4xl mx-auto space-y-8">
