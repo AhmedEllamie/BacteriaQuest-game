@@ -70,35 +70,27 @@ export const playWelcomeSound = () => {
 };
 
 export const playCorrectSound = () => {
-  // Play multiple clapping sounds (more pulses)
-  const clapFrequencies = [1200, 1400, 1200, 1400, 1200]; // More clap variations
+  // Play clapping sound (multiple quick pulses)
+  const clapFrequencies = [1500, 2000, 1800];
   clapFrequencies.forEach((freq, index) => {
     setTimeout(() => {
-      const { oscillator, gainNode } = createOscillator(freq, 0.08, 0.5); // Shorter duration, higher volume
+      const { oscillator } = createOscillator(freq, 0.1, 0.3);
       oscillator.start();
-      oscillator.stop(audioContext.currentTime + 0.08);
-
-      // Add a quick fade-out for more realistic clap sound
-      gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.08);
-    }, index * 80); // Faster sequence
+      oscillator.stop(audioContext.currentTime + 0.1);
+    }, index * 100);
   });
 
-  // Add crowd cheering effect
+  // Play whistling sound (ascending tone)
   setTimeout(() => {
-    const cheerFreqs = [800, 1000, 1200, 1400, 1600];
-    cheerFreqs.forEach((freq, index) => {
+    const whistleFreqs = [2000, 2500, 3000];
+    whistleFreqs.forEach((freq, index) => {
       setTimeout(() => {
-        const { oscillator, gainNode } = createOscillator(freq, 0.3, 0.2);
+        const { oscillator } = createOscillator(freq, 0.2, 0.2);
         oscillator.start();
-        oscillator.stop(audioContext.currentTime + 0.3);
-
-        // Create a swell effect
-        gainNode.gain.setValueAtTime(0.01, audioContext.currentTime);
-        gainNode.gain.exponentialRampToValueAtTime(0.2, audioContext.currentTime + 0.1);
-        gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.3);
-      }, index * 50);
+        oscillator.stop(audioContext.currentTime + 0.2);
+      }, index * 100);
     });
-  }, 200);
+  }, 300);
 };
 
 export const playWrongSound = () => {
