@@ -5,11 +5,12 @@ import { Question } from "@/lib/questions";
 interface QuestionCardProps {
   question: Question;
   onAnswer: (index: number) => void;
+  onContinue?: () => void;
   disabled?: boolean;
   showExplanation?: boolean;
 }
 
-export function QuestionCard({ question, onAnswer, disabled, showExplanation }: QuestionCardProps) {
+export function QuestionCard({ question, onAnswer, onContinue, disabled, showExplanation }: QuestionCardProps) {
   return (
     <Card className="w-full bg-white shadow-lg border-2 border-[#e6d5a7] overflow-hidden">
       {/* Yellow header section */}
@@ -25,6 +26,12 @@ export function QuestionCard({ question, onAnswer, disabled, showExplanation }: 
           <div className="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-4">
             <h4 className="text-blue-800 font-medium mb-2">Explanation:</h4>
             <p className="text-blue-700 text-sm">{question.explanation}</p>
+            <Button 
+              onClick={onContinue}
+              className="mt-4 bg-blue-600 hover:bg-blue-700 text-white"
+            >
+              Got it!
+            </Button>
           </div>
         )}
 

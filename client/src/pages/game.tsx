@@ -51,13 +51,12 @@ export default function Game() {
 
       // Show explanation for wrong answer
       setShowExplanation(true);
-
-      // Add a slight delay before moving to the next question
-      setTimeout(() => {
-        setShowExplanation(false);
-        moveToNextQuestion();
-      }, 5000); // Show explanation for 5 seconds
     }
+  };
+
+  const handleContinue = () => {
+    setShowExplanation(false);
+    moveToNextQuestion();
   };
 
   const moveToNextQuestion = () => {
@@ -109,6 +108,7 @@ export default function Game() {
                 <QuestionCard
                   question={questions[currentQuestion]}
                   onAnswer={handleAnswer}
+                  onContinue={handleContinue}
                   disabled={gameOver}
                   showExplanation={showExplanation}
                 />
