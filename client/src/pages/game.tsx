@@ -151,18 +151,18 @@ export default function Game() {
                   <div className="mt-8">
                     <h3 className="text-xl font-semibold mb-4">Your Achievement</h3>
                     {score >= 25 && resistance <= 30 ? (
-                      <div className="bg-yellow-100 p-4 rounded-lg">
-                        <p className="text-lg font-medium text-yellow-800">🏅 Gold Medal</p>
+                      <div className="bg-blue-100 p-4 rounded-lg">
+                        <p className="text-lg font-medium text-blue-800">🏅 Gold Medal</p>
                         <p className="text-sm">Outstanding knowledge of the AWaRe classification!</p>
                       </div>
                     ) : score >= 20 && resistance <= 40 ? (
-                      <div className="bg-gray-100 p-4 rounded-lg">
-                        <p className="text-lg font-medium text-gray-700">🥈 Silver Medal</p>
+                      <div className="bg-blue-50 p-4 rounded-lg">
+                        <p className="text-lg font-medium text-blue-700">🥈 Silver Medal</p>
                         <p className="text-sm">Great understanding of antibiotic stewardship principles!</p>
                       </div>
                     ) : (
-                      <div className="bg-orange-100 p-4 rounded-lg">
-                        <p className="text-lg font-medium text-orange-800">🥉 Bronze Medal</p>
+                      <div className="bg-blue-50 p-4 rounded-lg">
+                        <p className="text-lg font-medium text-blue-600">🥉 Bronze Medal</p>
                         <p className="text-sm">Excellent engagement and enthusiasm!</p>
                       </div>
                     )}
