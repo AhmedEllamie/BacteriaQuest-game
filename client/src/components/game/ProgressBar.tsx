@@ -6,7 +6,7 @@ interface ProgressBarProps {
 
 export function ProgressBar({ resistance }: ProgressBarProps) {
   return (
-    <div className="w-full max-w-md mx-auto">
+    <div className="w-full mx-auto">
       <div className="flex justify-between mb-2">
         <span className="text-sm font-medium">Resistance Level</span>
         <span className="text-sm font-medium">{resistance}%</span>

@@ -99,12 +99,17 @@ export default function Game() {
                 isCorrect={isCorrect}
               />
             </div>
-            <div className="w-48">
-              <BacteriaAnimation 
-                isGrowing={isGrowing} 
-                size={bacteriaSize} 
-                mood={mood}
-              />
+            <div className="flex flex-col items-center gap-4">
+              <div className="w-48">
+                <BacteriaAnimation 
+                  isGrowing={isGrowing} 
+                  size={bacteriaSize} 
+                  mood={mood}
+                />
+              </div>
+              <div className="w-48">
+                <ProgressBar resistance={resistance} />
+              </div>
             </div>
           </div>
           
@@ -170,8 +175,7 @@ export default function Game() {
               </div>
             )}
           
-          <ProgressBar resistance={resistance} />
-        </div>
+          </div>
       </div>
     </div>
   );
