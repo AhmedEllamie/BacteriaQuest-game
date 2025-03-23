@@ -79,37 +79,43 @@ export default function Game() {
     <div 
       className="min-h-screen w-full p-4 md:p-6"
       style={{ 
-        backgroundImage: 'url(/assets/game1.jpg)',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat'
+        backgroundColor: '#89CFF0'
       }}
     >
       <Fireworks isCorrect={isCorrect} />
       <div className="max-w-4xl mx-auto space-y-6 md:space-y-8">
         <div className="text-center mb-4 md:mb-8">
-          <h1 className="text-3xl md:text-4xl font-bold mb-2 text-white text-shadow">Bacteria Battle</h1>
-          <p className="text-white text-shadow">
+          <h1 className="text-3xl md:text-4xl font-bold mb-2 text-black">Bacteria Battle</h1>
+          <p className="text-black">
             Question {currentQuestion + 1} of {questions.length}
           </p>
         </div>
 
-        <div className="flex flex-col gap-6 md:gap-8">
-          <div className="flex items-center justify-center relative flex-col md:flex-row">
-            <div className="flex-shrink-0 z-10 w-full md:w-auto">
+        <div className="flex flex-col gap-6">
+          <div className="grid grid-cols-2 items-center justify-items-center gap-4 mb-6">
+            <div className="w-48">
               <DoctorAvatar 
                 mood={mood === "happy" ? "sad" : mood === "sad" ? "happy" : "neutral"}
                 isCorrect={isCorrect}
               />
             </div>
-            {!gameOver ? (
-              <div className="w-full md:w-[450px] md:absolute md:top-24 md:-right-32 md:transform md:-rotate-6 z-20">
-                <QuestionCard
-                  question={questions[currentQuestion]}
-                  onAnswer={handleAnswer}
-                  onContinue={handleContinue}
-                  disabled={gameOver}
-                  showExplanation={showExplanation}
+            <div className="w-48">
+              <BacteriaAnimation 
+                isGrowing={isGrowing} 
+                size={bacteriaSize} 
+                mood={mood}
+              />
+            </div>
+          </div>
+          
+          {!gameOver ? (
+            <div className="w-full">
+              <QuestionCard
+                question={questions[currentQuestion]}
+                onAnswer={handleAnswer}
+                onContinue={handleContinue}
+                disabled={gameOver}
+                showExplanation={showExplanation}
                   isCorrect={isCorrect}
                 />
               </div>
@@ -163,16 +169,7 @@ export default function Game() {
                 </div>
               </div>
             )}
-          </div>
-
-          <div className="flex justify-center">
-            <BacteriaAnimation 
-              isGrowing={isGrowing} 
-              size={bacteriaSize} 
-              mood={mood}
-            />
-          </div>
-
+          
           <ProgressBar resistance={resistance} />
         </div>
       </div>
