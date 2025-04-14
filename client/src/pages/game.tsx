@@ -78,12 +78,7 @@ export default function Game() {
   return (
     <div 
       className="min-h-screen w-full p-4 md:p-6"
-      style={{ 
-        backgroundImage: 'url(/assets/world.jpg)',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat'
-      }}
+      style={{ backgroundColor: '#89CFF0' }}
     >
       <Fireworks isCorrect={isCorrect} />
       <div className="max-w-4xl mx-auto space-y-6 md:space-y-8">
