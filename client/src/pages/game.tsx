@@ -79,7 +79,10 @@ export default function Game() {
     <div 
       className="min-h-screen w-full p-4 md:p-6"
       style={{ 
-        backgroundColor: '#89CFF0'
+        backgroundImage: 'url(/assets/world.jpg)',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
       }}
     >
       <Fireworks isCorrect={isCorrect} />

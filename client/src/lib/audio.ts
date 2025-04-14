@@ -94,14 +94,9 @@ export const playCorrectSound = () => {
 };
 
 export const playWrongSound = () => {
-  // Play a descending error sound
-  const frequencies = [300, 250, 200];
-  frequencies.forEach((freq, index) => {
-    setTimeout(() => {
-      const { oscillator } = createOscillator(freq, 0.4, 0.6);
-      oscillator.start();
-      oscillator.stop(audioContext.currentTime + 0.4);
-    }, index * 100);
+  const wrongAudio = new Audio('/assets/wrong.mp3');
+  return wrongAudio.play().catch(error => {
+    console.error('Error playing wrong answer audio:', error);
   });
 };
 
