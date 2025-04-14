@@ -26,7 +26,8 @@ export default function Landing() {
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
-        backgroundAttachment: 'fixed'
+        backgroundAttachment: 'fixed',
+        backgroundColor: '#89CFF0' //Updated background color
       }}
     >
       <motion.div
