@@ -20,31 +20,32 @@ export default function Landing() {
 
   return (
     <div 
-      className="min-h-screen flex items-center justify-center p-6"
+      className="min-h-screen flex flex-col items-center justify-end p-6 pb-16"
       style={{ 
         backgroundImage: 'url(/assets/world.jpg)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat'
+        backgroundRepeat: 'no-repeat',
+        backgroundAttachment: 'fixed'
       }}
     >
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="text-center"
+        className="text-center bg-black/30 p-6 rounded-lg backdrop-blur-sm"
       >
-        <h1 className="text-6xl font-bold mb-8 bg-gradient-to-r from-blue-600 to-violet-500 bg-clip-text text-transparent">
+        <h1 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-violet-400 bg-clip-text text-transparent">
           WHO AWaRe
         </h1>
-        <h2 className="text-4xl font-semibold mb-12 text-foreground">
+        <h2 className="text-2xl md:text-3xl font-semibold mb-6 text-white">
           Antibiotics Game
         </h2>
         <Button
-          size="lg"
+          size="default"
           onClick={handleWelcome}
           disabled={isPlaying}
-          className="text-xl px-8 py-6 bg-gradient-to-r from-blue-600 to-violet-500 hover:from-blue-700 hover:to-violet-600"
+          className="text-lg px-6 py-2 bg-gradient-to-r from-blue-600 to-violet-500 hover:from-blue-700 hover:to-violet-600"
         >
           {isPlaying ? "Loading..." : "Welcome"}
         </Button>
