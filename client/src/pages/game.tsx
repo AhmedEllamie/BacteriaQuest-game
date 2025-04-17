@@ -1,6 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useQuery, useMutation } from "@tanstack/react-query";
-import { questions } from "@/lib/questions";
+import { loadQuestionsFromFile, Question } from "@/lib/questions";
 import { BacteriaAnimation } from "@/components/game/BacteriaAnimation";
 import { DoctorAvatar } from "@/components/game/DoctorAvatar";
 import { ProgressBar } from "@/components/game/ProgressBar";
@@ -8,6 +8,8 @@ import { QuestionCard } from "@/components/game/QuestionCard";
 import { playCorrectSound, playWrongSound, playGameOverSound } from "@/lib/audio";
 import { apiRequest } from "@/lib/queryClient";
 import { Fireworks } from "@/components/game/Firework";
+import shuffleArray from "@/utils/shuffleArray";
+
 
 export default function Game() {
   const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -19,6 +21,7 @@ export default function Game() {
   const [isCorrect, setIsCorrect] = useState(false);
   const [showExplanation, setShowExplanation] = useState(false);
   const [gameOver, setGameOver] = useState(false);
+  const [gameQuestions, setGameQuestions] = useState<Question[]>([]);
 
   const saveMutation = useMutation({
     mutationFn: async (result: any) => {
@@ -30,7 +33,7 @@ export default function Game() {
   });
 
   const handleAnswer = (answerIndex: number) => {
-    const correct = questions[currentQuestion].correctAnswer === answerIndex;
+    const correct = gameQuestions[currentQuestion].correctAnswer === answerIndex;
     setIsCorrect(correct);
 
     if (correct) {
@@ -58,7 +61,7 @@ export default function Game() {
   };
 
   const moveToNextQuestion = () => {
-    if (currentQuestion === questions.length - 1) {
+    if (currentQuestion === gameQuestions.length - 1) {
       setGameOver(true);
       playGameOverSound();
       saveMutation.mutate({
@@ -75,6 +78,15 @@ export default function Game() {
     }
   };
 
+  useEffect(() => {
+    async function loadQuestions() {
+      const loadedQuestions = await loadQuestionsFromFile();
+      const shuffledQuestions = shuffleArray([...loadedQuestions]);
+      setGameQuestions(shuffledQuestions);
+    }
+    loadQuestions();
+  }, []);
+
   return (
     <div 
       className="min-h-screen w-full p-4 md:p-6"
@@ -85,7 +97,7 @@ export default function Game() {
         <div className="text-center mb-4 md:mb-8">
           <h1 className="text-3xl md:text-4xl font-bold mb-2 text-black">Bacteria Battle</h1>
           <p className="text-black">
-            Question {currentQuestion + 1} of {questions.length}
+            Question {currentQuestion + 1} of {gameQuestions.length}
           </p>
         </div>
 
@@ -110,11 +122,11 @@ export default function Game() {
               </div>
             </div>
           </div>
-          
+
           {!gameOver ? (
             <div className="w-full">
               <QuestionCard
-                question={questions[currentQuestion]}
+                question={gameQuestions[currentQuestion]}
                 onAnswer={handleAnswer}
                 onContinue={handleContinue}
                 disabled={gameOver}
@@ -172,7 +184,7 @@ export default function Game() {
                 </div>
               </div>
             )}
-          
+
           </div>
       </div>
     </div>
