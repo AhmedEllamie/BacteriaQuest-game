@@ -170,16 +170,29 @@ export default function Game() {
                     Thank you for your dedication, and let's continue to apply what we've learned today in our daily practice.
                   </p>
                   
-                  <div className="mt-6 p-4 bg-blue-50 rounded-lg">
-                    <p className="font-semibold">For your certificate:</p>
-                    <a 
-                      href="https://forms.gle/7Ma2hy5quaGtG6wY9"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-blue-600 hover:text-blue-800 underline"
-                    >
-                      Click here to get your certificate
-                    </a>
+                  <div className="mt-6 p-4 bg-blue-50 rounded-lg space-y-4">
+                    <div>
+                      <p className="font-semibold">For your certificate:</p>
+                      <a 
+                        href="https://forms.gle/7Ma2hy5quaGtG6wY9"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-blue-600 hover:text-blue-800 underline"
+                      >
+                        Click here to get your certificate
+                      </a>
+                    </div>
+                    <div>
+                      <p className="font-semibold">For your guidelines:</p>
+                      <a 
+                        href="https://drive.google.com/drive/folders/1kfSc3SApeqQ7ySYyGrG160NQhRuCzijB"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-blue-600 hover:text-blue-800 underline"
+                      >
+                        Click here to access the guidelines
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
