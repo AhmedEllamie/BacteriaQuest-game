@@ -256,14 +256,6 @@ export const questions: Question[] = [
   },
   {
     id: 30,
-    text: "A 55-year-old patient with sepsis caused by multidrug-resistant Acinetobacter baumannii. What antibiotic is recommended in this scenario?",
-    options: ["Amoxicillin-clavulanate", "Tigecycline", "Azithromycin"],
-    correctAnswer: 1,
-    explanation:
-      "Tigecycline is a Reserve antibiotic used for multidrug-resistant & culture-confirmed Acinetobacter infections",
-  },
-  {
-    id: 31,
     text: "A 55-year-old male with a history of type 2 diabetes and prosthetic heart valve presents with fever, chills, and a new heart murmur. Blood cultures grow Methicillin-resistant Staphylococcus aureus (MRSA), and infective endocarditis (IE) is diagnosed. What antibiotic is recommended in this scenario?",
     options: ["Linezolid", "vancomycin", "ceftazedim"],
     correctAnswer: 1,
@@ -271,7 +263,7 @@ export const questions: Question[] = [
       "Vancomycin targeting MRSA with proven efficacy in endocarditis. Linezolid is bacteriostatic and not effective for infective endocarditis, which requires bactericidal antibiotics.",
   },
   {
-    id: 32,
+    id: 31,
     text: "A 40-year-old patient presents with mild community-acquired pneumonia. He has no comorbidities and no recent antibiotic use. Would you start with:",
     options: [
       "Narrow-spectrum antibiotic (e.g., doxycycline or azithromycin) targeting typical pathogens like Streptococcus pneumoniae and Mycoplasma pneumoniae",
@@ -282,7 +274,7 @@ export const questions: Question[] = [
       "narrow-spectrum is preferred for low-risk, stable patients with mild CAP. Broad-spectrum is reserved for severe cases or patients with risk factors for resistant organisms.",
   },
   {
-    id: 33,
+    id: 32,
     text: "A 55-year-old patient was admitted to the hospital with fever and shortness of breath. An empiric broad-spectrum antibiotic was started based on the initial clinical assessment. After 48 hours, blood cultures came back negative (no bacterial growth), and the patient clinically improved — fever subsided, and vital signs stabilized. What is your decision?",
     options: [
       "Continue the antibiotic course to complete the full duration",
